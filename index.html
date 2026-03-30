@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metamine Server</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #e2e8f0;
+      text-align: center;
+      background: #020617;
+    }
+
+    /* LOGO FIXO NO TOPO */
+    .logo-fixo {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 9999;
+    }
+
+    .logo-fixo img {
+      width: 120px; /* pode ajustar */
+      height: auto;
+    }
+
+    .section-bg {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+
+    .overlay {
+      background: rgba(0,0,0,0.7);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #22c55e;
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      padding: 25px;
+      margin: 20px auto;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .highlight {
+      color: #22c55e;
+      font-weight: bold;
+    }
+
+    button {
+      padding: 12px 25px;
+      background: #22c55e;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #16a34a;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+    }
+
+    ul li {
+      margin: 6px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- LOGO FIXO -->
+<div class="logo-fixo">
+  <img src="imagens/logo.png" alt="Logo Metamine">
+</div>
+
+<!-- HEADER -->
+<header class="section-bg" style="background-image: url('imagens/img1.jpeg');">
+  <div class="overlay">
+    <h1>🌍 Metamine Server</h1>
+    <p>Não é só survival. É um mundo vivo.</p>
+  </div>
+</header>
+
+<!-- COMO FUNCIONA -->
+<div class="section-bg" style="background-image: url('imagens/img2.jpeg');">
+  <div class="overlay">
+    <section class="card">
+      <h2>💡 Como funciona</h2>
+      <p>Você começa em uma <span class="highlight">cidade medieval protegida</span>.</p>
+      <p>Sem quebrar bloco. Sem PVP. Sem bagunça.</p>
+      <p>Mas ao sair da cidade… tudo muda.</p>
+    </section>
+  </div>
+</div>
+
+<!-- MUNDO LIVRE -->
+<div class="section-bg" style="background-image: url('imagens/img3.jpg');">
+  <div class="overlay">
+    <section class="card">
+      <h2>🌞🌙 Mundo Livre</h2>
+      <p>Área totalmente aberta e orgânica.</p>
+      <p><span class="highlight">De dia:</span> seguro</p>
+      <p><span class="highlight">De noite:</span> PVP liberado ⚔️</p>
+    </section>
+  </div>
+</div>
+
+<!-- RPG -->
+<div class="section-bg" style="background-image: url('imagens/img4.png');">
+  <div class="overlay">
+    <section class="card">
+      <h2>⚔️ Sistema RPG</h2>
+      <p>Sem classe fixa.</p>
+      <p>Você evolui fazendo:</p>
+      <ul>
+        <li>Nadou → melhora natação</li>
+        <li>Lutou → mais forte</li>
+        <li>Correu → mais resistência</li>
+        <li>Pulou → mais agilidade</li>
+      </ul>
+    </section>
+  </div>
+</div>
+
+<!-- QUESTS -->
+<div class="section-bg" style="background-image: url('imagens/img5.png');">
+  <div class="overlay">
+    <section class="card">
+      <h2>📜 Quests</h2>
+      <p>Missões, progressão e liberdade total.</p>
+    </section>
+  </div>
+</div>
+
+<!-- MULTIVERSO -->
+<div class="section-bg" style="background-image: url('imagens/img6.png');">
+  <div class="overlay">
+    <section class="card">
+      <h2>🌍 Multiverso</h2>
+      <p>🏙️ Mundo principal</p>
+      <p>⛏️ Mundo de farm (PVP OFF dia / ON noite)</p>
+      <p>🏟️ Arena (PVP sempre ON)</p>
+      <p>🏡 Mundo VIP (controle de PVP)</p>
+      <p>🛒 Mundo loja</p>
+    </section>
+  </div>
+</div>
+
+<!-- ESTILO -->
+<div class="section-bg" style="background-image: url('imagens/img7.png');">
+  <div class="overlay">
+    <section class="card">
+      <h2>🧱 Estilo</h2>
+      <p>Minecraft Vanilla (sem mods de armas)</p>
+      <p>Builds naturais e imersivas</p>
+      <p>Foco total em criatividade</p>
+    </section>
+  </div>
+</div>
+
+<!-- RECRUTAMENTO -->
+<div class="section-bg" style="background-image: url('imagens/img8.png');">
+  <div class="overlay">
+    <section class="card">
+      <h2>👷 Recrutamento</h2>
+      <p>Estamos procurando construtores.</p>
+      <p>Cidade medieval, estruturas únicas e criatividade real.</p>
+      <p><strong>Isso não é só um servidor...</strong></p>
+      <p class="highlight">É um mundo em construção.</p>
+
+      <br>
+
+      <button onclick="copiarIP()">Copiar IP</button>
+      <p id="ip">SEU_IP_AQUI</p>
+    </section>
+  </div>
+</div>
+
+<script>
+  const ip = "SEU_IP_AQUI";
+  document.getElementById("ip").innerText = ip;
+
+  function copiarIP() {
+    navigator.clipboard.writeText(ip);
+    alert("IP copiado!");
+  }
+</script>
+
+</body>
+</html>
