@@ -14,7 +14,7 @@
       background: #020617;
     }
 
-    /* LOGO FIXO NO TOPO */
+    /* LOGO FIXO */
     .logo-fixo {
       position: fixed;
       top: 20px;
@@ -24,7 +24,29 @@
 
     .logo-fixo img {
       width: 120px;
-      height: auto;
+    }
+
+    /* PERSONAGENS LATERAIS */
+    .personagem {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1000;
+      pointer-events: none;
+    }
+
+    .personagem-esq {
+      left: 0;
+    }
+
+    .personagem-dir {
+      right: 0;
+    }
+
+    .personagem img {
+      height: 80vh; /* ocupa grande parte da tela */
+      max-width: 40vw;
+      object-fit: contain;
     }
 
     .section-bg {
@@ -37,23 +59,16 @@
     .overlay {
       background: rgba(0,0,0,0.7);
       padding: 60px 20px;
-      text-align: center;
     }
 
     h1 {
       color: #22c55e;
       font-size: 3em;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      margin-top: 0;
     }
 
     section {
       max-width: 900px;
       margin: auto;
-      text-align: center;
     }
 
     .card {
@@ -61,7 +76,6 @@
       padding: 25px;
       margin: 20px auto;
       border-radius: 12px;
-      text-align: center;
     }
 
     .highlight {
@@ -76,7 +90,6 @@
       border-radius: 6px;
       cursor: pointer;
       font-weight: bold;
-      transition: 0.2s;
     }
 
     button:hover {
@@ -86,7 +99,6 @@
     ul {
       list-style: none;
       padding: 0;
-      text-align: center;
     }
 
     ul li {
@@ -97,14 +109,24 @@
 
 <body>
 
-<!-- 🎵 MÚSICA -->
+<!-- MÚSICA -->
 <audio id="bg-music" loop>
   <source src="musicas/musica.mp3" type="audio/mpeg">
 </audio>
 
-<!-- LOGO FIXO -->
+<!-- LOGO -->
 <div class="logo-fixo">
-  <img src="imagens/logo.png" alt="Logo Metamine">
+  <img src="imagens/logo.png">
+</div>
+
+<!-- PERSONAGEM ESQUERDO -->
+<div class="personagem personagem-esq">
+  <img src="imagens/personagem1.png">
+</div>
+
+<!-- PERSONAGEM DIREITO -->
+<div class="personagem personagem-dir">
+  <img src="imagens/personagem2.png">
 </div>
 
 <!-- HEADER -->
@@ -174,7 +196,7 @@
       <p>🏙️ Mundo principal</p>
       <p>⛏️ Mundo de farm (PVP OFF dia / ON noite)</p>
       <p>🏟️ Arena (PVP sempre ON)</p>
-      <p>🏡 Mundo VIP (controle de PVP)</p>
+      <p>🏡 Mundo VIP</p>
       <p>🛒 Mundo loja</p>
     </section>
   </div>
@@ -185,9 +207,9 @@
   <div class="overlay">
     <section class="card">
       <h2>🧱 Estilo</h2>
-      <p>Minecraft Vanilla (sem mods de armas)</p>
-      <p>Builds naturais e imersivas</p>
-      <p>Foco total em criatividade</p>
+      <p>Minecraft Vanilla</p>
+      <p>Builds imersivas</p>
+      <p>Criatividade total</p>
     </section>
   </div>
 </div>
@@ -197,12 +219,9 @@
   <div class="overlay">
     <section class="card">
       <h2>👷 Recrutamento</h2>
-      <p>Estamos procurando construtores.</p>
-      <p>Cidade medieval, estruturas únicas e criatividade real.</p>
-      <p><strong>Isso não é só um servidor...</strong></p>
+      <p>Procurando construtores.</p>
+      <p>Crie algo que vai ser usado.</p>
       <p class="highlight">É um mundo em construção.</p>
-
-      <br>
 
       <button onclick="copiarIP()">Copiar IP</button>
       <p id="ip">SEU_IP_AQUI</p>
@@ -219,7 +238,6 @@
     alert("IP copiado!");
   }
 
-  // 🎵 INICIAR MÚSICA NO PRIMEIRO CLIQUE
   const music = document.getElementById("bg-music");
   music.volume = 0.2;
 
