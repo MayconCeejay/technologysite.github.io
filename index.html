@@ -14,7 +14,6 @@
       background: #020617;
     }
 
-    /* LOGO FIXO */
     .logo-fixo {
       position: fixed;
       top: 20px;
@@ -26,7 +25,6 @@
       width: 120px;
     }
 
-    /* PERSONAGENS LATERAIS */
     .personagem {
       position: fixed;
       top: 50%;
@@ -44,7 +42,7 @@
     }
 
     .personagem img {
-      height: 80vh; /* ocupa grande parte da tela */
+      height: 80vh;
       max-width: 40vw;
       object-fit: contain;
     }
@@ -96,6 +94,15 @@
       background: #16a34a;
     }
 
+    input, select {
+      padding: 10px;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 6px;
+      border: none;
+      margin: 5px 0;
+    }
+
     ul {
       list-style: none;
       padding: 0;
@@ -109,27 +116,22 @@
 
 <body>
 
-<!-- MÚSICA -->
 <audio id="bg-music" loop>
   <source src="musicas/musica.mp3" type="audio/mpeg">
 </audio>
 
-<!-- LOGO -->
 <div class="logo-fixo">
   <img src="imagens/logo.png">
 </div>
 
-<!-- PERSONAGEM ESQUERDO -->
 <div class="personagem personagem-esq">
   <img src="imagens/personagem1.png">
 </div>
 
-<!-- PERSONAGEM DIREITO -->
 <div class="personagem personagem-dir">
   <img src="imagens/personagem2.png">
 </div>
 
-<!-- HEADER -->
 <header class="section-bg" style="background-image: url('imagens/img1.jpeg');">
   <div class="overlay">
     <h1>🌍 Metamine Server BR</h1>
@@ -137,7 +139,6 @@
   </div>
 </header>
 
-<!-- COMO FUNCIONA -->
 <div class="section-bg" style="background-image: url('imagens/img2.jpeg');">
   <div class="overlay">
     <section class="card">
@@ -149,7 +150,6 @@
   </div>
 </div>
 
-<!-- MUNDO LIVRE -->
 <div class="section-bg" style="background-image: url('imagens/img3.jpg');">
   <div class="overlay">
     <section class="card">
@@ -161,13 +161,10 @@
   </div>
 </div>
 
-<!-- RPG -->
 <div class="section-bg" style="background-image: url('imagens/img4.png');">
   <div class="overlay">
     <section class="card">
       <h2>⚔️ Sistema RPG</h2>
-      <p>Sem classe fixa.</p>
-      <p>Você evolui fazendo:</p>
       <ul>
         <li>Nadou → melhora natação</li>
         <li>Lutou → mais forte</li>
@@ -178,66 +175,59 @@
   </div>
 </div>
 
-<!-- QUESTS -->
 <div class="section-bg" style="background-image: url('imagens/img5.png');">
   <div class="overlay">
     <section class="card">
       <h2>📜 Quests</h2>
-      <p>Missões, progressão e liberdade total.</p>
+      <p>Missões e progressão.</p>
     </section>
   </div>
 </div>
 
-<!-- MULTIVERSO -->
 <div class="section-bg" style="background-image: url('imagens/img6.png');">
   <div class="overlay">
     <section class="card">
       <h2>🌍 Multiverso</h2>
-      <p>🏙️ Mundo principal</p>
-      <p>⛏️ Mundo de farm (PVP OFF dia / ON noite)</p>
-      <p>🏟️ Arena (PVP sempre ON)</p>
-      <p>🏡 Mundo VIP</p>
-      <p>🛒 Mundo loja</p>
+      <p>Vários mundos conectados.</p>
     </section>
   </div>
 </div>
 
-<!-- ESTILO -->
 <div class="section-bg" style="background-image: url('imagens/img7.png');">
   <div class="overlay">
     <section class="card">
       <h2>🧱 Estilo</h2>
       <p>Minecraft Vanilla</p>
-      <p>Builds imersivas</p>
-      <p>Criatividade total</p>
     </section>
   </div>
 </div>
 
-<!-- RECRUTAMENTO -->
+<!-- 🔥 FORMULÁRIO NOVO -->
 <div class="section-bg" style="background-image: url('imagens/img8.png');">
   <div class="overlay">
     <section class="card">
       <h2>👷 Recrutamento</h2>
-      <p>Procurando construtores.</p>
-      <p>Crie algo que vai ser usado.</p>
-      <p class="highlight">É um mundo em construção.</p>
+      <p class="highlight">Preencha para participar:</p>
 
-      <button onclick="copiarIP()">Copiar IP</button>
-      <p id="ip">SEU_IP_AQUI</p>
+      <form action="https://formspree.io/f/meepgdzz" method="POST">
+
+        <input type="text" name="nick" placeholder="Seu nick no Minecraft" required><br>
+
+        <input type="text" name="contato" placeholder="Seu contato (WhatsApp/Discord)" required><br>
+
+        <input type="date" name="nascimento" required><br>
+
+        <input type="number" name="idade" placeholder="Sua idade" required><br><br>
+
+        <button type="submit">Enviar</button>
+
+      </form>
+
     </section>
   </div>
 </div>
 
 <script>
-  const ip = "SEU_IP_AQUI";
-  document.getElementById("ip").innerText = ip;
-
-  function copiarIP() {
-    navigator.clipboard.writeText(ip);
-    alert("IP copiado!");
-  }
-
   const music = document.getElementById("bg-music");
   music.volume = 0.2;
 
