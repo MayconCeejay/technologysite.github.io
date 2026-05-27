@@ -3,15 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Metamine Server</title>
+  <title>METAMINE Server BR</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      color: #e2e8f0;
-      text-align: center;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
       background: #020617;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+
+    body::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    body::-webkit-scrollbar-thumb {
+      background: #22c55e;
+      border-radius: 10px;
     }
 
     .logo-fixo {
@@ -19,10 +38,18 @@
       top: 20px;
       left: 20px;
       z-index: 9999;
+      animation: pulse 3s infinite;
     }
 
     .logo-fixo img {
       width: 120px;
+      filter: drop-shadow(0 0 15px rgba(34,197,94,0.6));
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+      100% { transform: scale(1); }
     }
 
     .personagem {
@@ -31,6 +58,7 @@
       transform: translateY(-50%);
       z-index: 1000;
       pointer-events: none;
+      opacity: 0.85;
     }
 
     .personagem-esq {
@@ -45,35 +73,188 @@
       height: 80vh;
       max-width: 40vw;
       object-fit: contain;
+      filter: drop-shadow(0 0 30px rgba(0,0,0,0.7));
     }
 
-    .section-bg {
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+      padding: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #22c55e;
+      text-shadow: 0 0 10px #22c55e;
+    }
+
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('imagens/img1.jpeg');
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      animation: fadeUp 1.5s ease;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 5rem;
+      color: #22c55e;
+      text-shadow: 0 0 25px rgba(34,197,94,0.7);
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      line-height: 1.8;
+      color: #cbd5e1;
+    }
+
+    .btns {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .btn-green {
+      background: #22c55e;
+      color: black;
+      box-shadow: 0 0 20px rgba(34,197,94,0.4);
+    }
+
+    .btn-green:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 30px rgba(34,197,94,0.8);
+    }
+
+    .btn-dark {
+      background: rgba(255,255,255,0.08);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .btn-dark:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    .section {
       position: relative;
+      padding: 120px 20px;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
     }
 
     .overlay {
-      background: rgba(0,0,0,0.7);
-      padding: 60px 20px;
-    }
-
-    h1 {
-      color: #22c55e;
-      font-size: 3em;
-    }
-
-    section {
-      max-width: 900px;
+      background: rgba(0,0,0,0.75);
+      max-width: 1200px;
       margin: auto;
+      padding: 50px;
+      border-radius: 25px;
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 40px rgba(0,0,0,0.4);
+    }
+
+    .section h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      color: #22c55e;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .section p {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: #dbe4ee;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
     }
 
     .card {
       background: rgba(255,255,255,0.05);
-      padding: 25px;
-      margin: 20px auto;
-      border-radius: 12px;
+      padding: 30px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.4s;
+      backdrop-filter: blur(6px);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(34,197,94,0.5);
+      box-shadow: 0 0 30px rgba(34,197,94,0.2);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: #22c55e;
+      font-size: 1.4rem;
+    }
+
+    .server-box {
+      margin-top: 40px;
+      background: rgba(0,0,0,0.5);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      border: 1px solid rgba(34,197,94,0.2);
+    }
+
+    .server-box p {
+      margin: 10px 0;
+      font-size: 1.1rem;
     }
 
     .highlight {
@@ -81,35 +262,31 @@
       font-weight: bold;
     }
 
-    button {
-      padding: 12px 25px;
-      background: #22c55e;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
+    footer {
+      background: black;
+      text-align: center;
+      padding: 40px 20px;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255,255,255,0.08);
     }
 
-    button:hover {
-      background: #16a34a;
-    }
+    @media(max-width: 900px) {
+      .personagem {
+        display: none;
+      }
 
-    input, select {
-      padding: 10px;
-      width: 80%;
-      max-width: 400px;
-      border-radius: 6px;
-      border: none;
-      margin: 5px 0;
-    }
+      .hero h1 {
+        font-size: 3rem;
+      }
 
-    ul {
-      list-style: none;
-      padding: 0;
-    }
+      nav {
+        gap: 12px;
+        flex-wrap: wrap;
+      }
 
-    ul li {
-      margin: 6px 0;
+      .overlay {
+        padding: 30px;
+      }
     }
   </style>
 </head>
@@ -132,109 +309,244 @@
   <img src="imagens/personagem2.png">
 </div>
 
-<header class="section-bg" style="background-image: url('imagens/img1.jpeg');">
-  <div class="overlay">
-    <h1>🌍 Metamine Server BR</h1>
-    <p>Não é só survival. É um mundo vivo.</p>
+<nav>
+  <a href="#sobre">Sobre</a>
+  <a href="#features">Recursos</a>
+  <a href="#economia">Economia</a>
+  <a href="#multiverse">Multiverse</a>
+  <a href="#entrar">Entrar</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>🌍 METAMINE SERVER BR</h1>
+
+    <p>
+      Não é apenas um servidor survival.<br>
+      É um mundo vivo construído por jogadores.
+    </p>
+
+    <div class="btns">
+      <a href="https://discord.gg/e628mbmweg" class="btn btn-green">Entrar no Discord</a>
+      <a href="#entrar" class="btn btn-dark">Ver IP do servidor</a>
+    </div>
   </div>
-</header>
+</section>
 
-<div class="section-bg" style="background-image: url('imagens/img2.jpeg');">
+<section class="section" id="sobre" style="background-image: url('imagens/img2.jpeg');">
   <div class="overlay">
-    <section class="card">
-      <h2>💡 Como funciona</h2>
-      <p>Você começa em uma <span class="highlight">cidade medieval protegida</span>.</p>
-      <p>Sem quebrar bloco. Sem PVP. Sem bagunça.</p>
-      <p>Mas ao sair da cidade… tudo muda.</p>
-    </section>
-  </div>
-</div>
 
-<div class="section-bg" style="background-image: url('imagens/img3.jpg');">
+    <h2>⚒️ Survival Vanilla+</h2>
+
+    <p>
+      O METAMINE foi criado para trazer a sensação clássica do Minecraft Survival,
+      mas com melhorias modernas que deixam o mundo mais vivo, mais social e mais imersivo.
+    </p>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>🌎 Mundo Vivo</h3>
+        <p>
+          NPCs interativos, eventos, cidades, exploração e atmosfera cinematográfica.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🏡 Proteção de Terreno</h3>
+        <p>
+          Construa sua base com segurança usando sistema de proteção.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🧍 Comunidade</h3>
+        <p>
+          Um servidor focado em amizade, economia e construção entre jogadores.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="features" style="background-image: url('imagens/img3.jpg');">
   <div class="overlay">
-    <section class="card">
-      <h2>🌞🌙 Mundo Livre</h2>
-      <p>Área totalmente aberta e orgânica.</p>
-      <p><span class="highlight">De dia:</span> seguro</p>
-      <p><span class="highlight">De noite:</span> PVP liberado ⚔️</p>
-    </section>
-  </div>
-</div>
 
-<div class="section-bg" style="background-image: url('imagens/img4.png');">
+    <h2>🔥 Recursos do Servidor</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>💰 Economia</h3>
+        <p>
+          Sistema econômico equilibrado com lojas entre jogadores.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>📜 Quests</h3>
+        <p>
+          Missões e progressão para explorar o servidor e ganhar recompensas.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🌐 Crossplay</h3>
+        <p>
+          Compatível com Java e Bedrock.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🎭 SkinRestorer</h3>
+        <p>
+          Skins funcionando para jogadores premium e piratas.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🗺️ BlueMap</h3>
+        <p>
+          Explore o mundo através do mapa online do servidor.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>⚔️ Eventos</h3>
+        <p>
+          Eventos automáticos, drops, XP rain e experiências sociais.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="economia" style="background-image: url('imagens/img4.png');">
   <div class="overlay">
-    <section class="card">
-      <h2>⚔️ Sistema RPG</h2>
-      <ul>
-        <li>Nadou → melhora natação</li>
-        <li>Lutou → mais forte</li>
-        <li>Correu → mais resistência</li>
-        <li>Pulou → mais agilidade</li>
-      </ul>
-    </section>
-  </div>
-</div>
 
-<div class="section-bg" style="background-image: url('imagens/img5.png');">
+    <h2>💎 Economia entre Jogadores</h2>
+
+    <p>
+      O METAMINE valoriza uma economia equilibrada.
+      Aqui os jogadores podem abrir lojas, negociar recursos,
+      construir cidades e criar sua própria história dentro do servidor.
+    </p>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>🏪 Player Shops</h3>
+        <p>
+          Crie lojas reais usando QuickShop.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🪙 Sistema Balanceado</h3>
+        <p>
+          Economia feita para durar sem inflação absurda.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🌱 Progressão Natural</h3>
+        <p>
+          Evolua jogando e explorando.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="multiverse" style="background-image: url('imagens/img6.png');">
   <div class="overlay">
-    <section class="card">
-      <h2>📜 Quests</h2>
-      <p>Missões e progressão.</p>
-    </section>
-  </div>
-</div>
 
-<div class="section-bg" style="background-image: url('imagens/img6.png');">
+    <h2>🧭 Multiverse</h2>
+
+    <p>
+      Explore múltiplos mundos conectados.
+      Cada dimensão do METAMINE possui suas próprias aventuras,
+      construções e possibilidades.
+    </p>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>🌌 Exploração</h3>
+        <p>
+          Mundos diferentes para explorar e conquistar.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🏰 Construção</h3>
+        <p>
+          Crie cidades, bases e projetos gigantes.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🎮 Experiência Social</h3>
+        <p>
+          Um servidor feito para jogar junto.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="entrar" style="background-image: url('imagens/img8.png');">
   <div class="overlay">
-    <section class="card">
-      <h2>🌍 Multiverso</h2>
-      <p>Vários mundos conectados.</p>
-    </section>
+
+    <h2>🚀 Entrar no Servidor</h2>
+
+    <div class="server-box">
+
+      <p><span class="highlight">IP Java:</span><br>
+      waggle-replacing.gl.joinmc.link</p>
+
+      <p><span class="highlight">IP Bedrock:</span><br>
+      waggle-replacing.gl.at.ply.gg</p>
+
+      <p><span class="highlight">Porta:</span> 23018</p>
+
+      <p><span class="highlight">Versão:</span> Paper 26.1.2</p>
+
+      <p><span class="highlight">Discord:</span><br>
+      https://discord.gg/e628mbmweg</p>
+
+      <div class="btns">
+        <a href="https://discord.gg/e628mbmweg" class="btn btn-green">Entrar Agora</a>
+      </div>
+
+    </div>
+
   </div>
-</div>
+</section>
 
-<div class="section-bg" style="background-image: url('imagens/img7.png');">
-  <div class="overlay">
-    <section class="card">
-      <h2>🧱 Estilo</h2>
-      <p>Minecraft Vanilla</p>
-    </section>
-  </div>
-</div>
-
-<!-- 🔥 FORMULÁRIO NOVO -->
-<div class="section-bg" style="background-image: url('imagens/img8.png');">
-  <div class="overlay">
-    <section class="card">
-      <h2>👷 Recrutamento</h2>
-      <p class="highlight">Preencha para participar:</p>
-
-      <form action="https://formspree.io/f/meepgdzz" method="POST">
-
-        <input type="text" name="nick" placeholder="Seu nick no Minecraft" required><br>
-
-        <input type="text" name="contato" placeholder="Seu contato (WhatsApp/Discord)" required><br>
-
-        <input type="date" name="nascimento" required><br>
-
-        <input type="number" name="idade" placeholder="Sua idade" required><br><br>
-
-        <button type="submit">Enviar</button>
-
-      </form>
-
-    </section>
-  </div>
-</div>
+<footer>
+  <p>🌍 METAMINE SERVER BR © 2026</p>
+  <p>Um mundo vivo construído por jogadores.</p>
+</footer>
 
 <script>
-  const music = document.getElementById("bg-music");
+  const music = document.getElementById('bg-music');
   music.volume = 0.2;
 
-  document.addEventListener("click", () => {
+  document.addEventListener('click', () => {
     music.play();
   }, { once: true });
 </script>
 
 </body>
 </html>
+🏡 survival social moderno
+🎮 servidor indie profissional
