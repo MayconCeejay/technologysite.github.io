@@ -35,13 +35,13 @@
 
     #mute-btn {
       position: fixed;
-      top: 20px;
+      bottom: 20px;
       right: 20px;
       z-index: 10000;
       background: rgba(0,0,0,0.7);
       color: white;
       border: 1px solid rgba(255,255,255,0.1);
-      padding: 12px 18px;
+      padding: 10px 14px;
       border-radius: 12px;
       cursor: pointer;
       backdrop-filter: blur(8px);
@@ -292,6 +292,25 @@
     }
 
     @media(max-width: 900px) {
+      .logo-fixo {
+        top: 10px;
+        left: 10px;
+      }
+
+      .logo-fixo img {
+        width: 70px;
+      }
+
+      nav {
+        padding-top: 70px;
+      }
+
+      #mute-btn {
+        bottom: 15px;
+        right: 15px;
+        font-size: 0.8rem;
+        padding: 8px 12px;
+      }
       .personagem {
         display: none;
       }
