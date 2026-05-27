@@ -3,29 +3,17 @@
 <head>
 
   <!-- ========================================================= -->
-  <!-- CONFIGURAÇÕES BÁSICAS -->
+  <!-- CONFIGURAÇÕES BÁSICAS DO SITE -->
   <!-- ========================================================= -->
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ========================================================= -->
-  <!-- FAVICON PERSONALIZADA -->
-  <!-- COLOQUE favicon.png DENTRO DA PASTA /imagens -->
-  <!-- ========================================================= -->
-
-  <link rel="icon" href="./imagens/favicon.png?v=2">
-  <link rel="shortcut icon" href="./imagens/favicon.png?v=2" type="image/png">
-  <link rel="apple-touch-icon" href="./imagens/favicon.png?v=2">
-
-  <!-- ========================================================= -->
   <!-- TÍTULO DO SITE -->
-  <!-- ========================================================= -->
-
   <title>METAMINE Server BR</title>
 
   <!-- ========================================================= -->
-  <!-- FONTES -->
+  <!-- IMPORTAÇÃO DAS FONTES -->
   <!-- ========================================================= -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,12 +22,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <!-- ========================================================= -->
-  <!-- CSS -->
+  <!-- CSS DO SITE -->
   <!-- ========================================================= -->
 
   <style>
 
-    /* RESET */
+    /* RESET GERAL */
     *{
       margin:0;
       padding:0;
@@ -47,7 +35,7 @@
       scroll-behavior:smooth;
     }
 
-    /* BODY */
+    /* CORPO DO SITE */
     body{
       font-family:'Inter', sans-serif;
       background:#020617;
@@ -108,7 +96,6 @@
     }
 
     @keyframes pulse{
-
       0%{
         transform:scale(1);
       }
@@ -123,7 +110,7 @@
     }
 
     /* ========================================================= */
-    /* MENU */
+    /* MENU SUPERIOR */
     /* ========================================================= */
 
     nav{
@@ -159,7 +146,6 @@
 
     .hero{
       min-height:100vh;
-
       background:
       linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
       url('imagens/img1.jpeg');
@@ -342,7 +328,7 @@
     }
 
     /* ========================================================= */
-    /* MAPA ONLINE */
+    /* IFRAME DO BLUEMAP */
     /* ========================================================= */
 
     .map-container{
@@ -361,7 +347,7 @@
     }
 
     /* ========================================================= */
-    /* FOOTER */
+    /* RODAPÉ */
     /* ========================================================= */
 
     footer{
@@ -400,15 +386,15 @@
         padding:30px;
       }
 
-      .map-container iframe{
-        height:500px;
-      }
-
       #mute-btn{
         bottom:15px;
         right:15px;
         font-size:0.8rem;
         padding:8px 12px;
+      }
+
+      .map-container iframe{
+        height:500px;
       }
     }
 
@@ -425,7 +411,7 @@
 <button id="mute-btn">🔊 Música</button>
 
 <!-- ========================================================= -->
-<!-- MÚSICA -->
+<!-- ÁUDIO DO SITE -->
 <!-- ========================================================= -->
 
 <audio id="bg-music" loop>
@@ -441,7 +427,7 @@
 </div>
 
 <!-- ========================================================= -->
-<!-- MENU -->
+<!-- MENU SUPERIOR -->
 <!-- ========================================================= -->
 
 <nav>
@@ -456,7 +442,7 @@
 
   <a href="#comandos">Comandos</a>
 
-  <!-- NOVA GUIA -->
+  <!-- NOVA ABA DO MAPA ONLINE -->
   <a href="#mapaonline">Mapa On-Line</a>
 
   <a href="#entrar">Entrar</a>
@@ -509,6 +495,40 @@
       mas com melhorias modernas que deixam o mundo mais vivo, mais social e mais imersivo.
     </p>
 
+    <div class="cards">
+
+      <div class="card">
+
+        <h3>🌎 Mundo Vivo</h3>
+
+        <p>
+          NPCs interativos, eventos, cidades, exploração e atmosfera cinematográfica.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>🏡 Proteção de Terreno</h3>
+
+        <p>
+          Construa sua base com segurança usando sistema de proteção.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>🧍 Comunidade</h3>
+
+        <p>
+          Um servidor focado em amizade, economia e construção entre jogadores.
+        </p>
+
+      </div>
+
+    </div>
+
   </div>
 
 </section>
@@ -537,10 +557,10 @@
 
       <div class="card">
 
-        <h3>🗺️ BlueMap</h3>
+        <h3>📜 Quests</h3>
 
         <p>
-          Explore o mundo através do mapa online do servidor.
+          Missões e progressão para explorar o servidor e ganhar recompensas.
         </p>
 
       </div>
@@ -551,6 +571,36 @@
 
         <p>
           Compatível com Java e Bedrock.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>🎭 SkinRestorer</h3>
+
+        <p>
+          Skins funcionando para jogadores premium e piratas.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>🗺️ BlueMap</h3>
+
+        <p>
+          Explore o mundo através do mapa online do servidor.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>⚔️ Eventos</h3>
+
+        <p>
+          Eventos automáticos, drops, XP rain e experiências sociais.
         </p>
 
       </div>
@@ -612,10 +662,10 @@
     <h2>📖 Comandos do Servidor</h2>
 
     <p style="text-align:center;">
-      Pesquise rapidamente os principais comandos do servidor.
+      Pesquise rapidamente os principais comandos disponíveis no METAMINE.
     </p>
 
-    <!-- PESQUISA -->
+    <!-- CAMPO DE PESQUISA -->
     <input
       type="text"
       id="searchCommands"
@@ -642,19 +692,8 @@
         <p>
           /warp world<br>
           /warp survival<br>
+          /warp metamine<br>
           /warp loja
-        </p>
-
-      </div>
-
-      <div class="card command-card">
-
-        <h3>💰 Economia</h3>
-
-        <p>
-          /balance<br>
-          /money<br>
-          /pay
         </p>
 
       </div>
@@ -666,7 +705,21 @@
         <p>
           /sethome<br>
           /home<br>
-          /delhome
+          /delhome<br>
+          /homes
+        </p>
+
+      </div>
+
+      <div class="card command-card">
+
+        <h3>💰 Economia</h3>
+
+        <p>
+          /balance<br>
+          /bal<br>
+          /money<br>
+          /pay
         </p>
 
       </div>
@@ -691,7 +744,14 @@
       Explore o mundo do METAMINE diretamente pelo navegador.
     </p>
 
+    <!-- ===================================================== -->
     <!-- IFRAME DO BLUEMAP -->
+    <!-- ===================================================== -->
+
+    <!--
+      IMPORTANTE:
+      TROQUE O LINK ABAIXO PELO LINK DO SEU CLOUDFLARE
+    -->
 
     <div class="map-container">
 
@@ -751,12 +811,14 @@
 </section>
 
 <!-- ========================================================= -->
-<!-- FOOTER -->
+<!-- RODAPÉ -->
 <!-- ========================================================= -->
 
 <footer>
 
-  <p>🌍 METAMINE SERVER BR © 2026</p>
+  <p>
+    🌍 METAMINE SERVER BR © 2026
+  </p>
 
   <p>
     Um mundo vivo construído por jogadores.
@@ -781,14 +843,14 @@
   // DEFINE VOLUME
   music.volume = 0.2;
 
-  // INICIA MÚSICA NO PRIMEIRO CLIQUE
+  // INICIA MÚSICA AO PRIMEIRO CLIQUE
   document.addEventListener('click', () => {
 
     music.play();
 
   }, { once:true });
 
-  // BOTÃO DE MÚSICA
+  // BOTÃO DE MUTAR
   muteBtn.addEventListener('click', () => {
 
     // VERIFICA SE ESTÁ MUTADO
@@ -808,7 +870,6 @@
       // ALTERA TEXTO
       muteBtn.innerHTML = '🔇 Mutado';
     }
-
   });
 
   // =========================================================
@@ -822,29 +883,27 @@
   // MONITORA DIGITAÇÃO
   searchInput.addEventListener('keyup', () => {
 
-    // TEXTO DIGITADO
+    // TEXTO PESQUISADO
     const value = searchInput.value.toLowerCase();
 
-    // PERCORRE CARDS
+    // PERCORRE TODOS OS CARDS
     commandCards.forEach(card => {
 
       // TEXTO INTERNO
       const text = card.innerText.toLowerCase();
 
-      // VERIFICA PESQUISA
+      // VERIFICA SE CONTÉM TEXTO
       if(text.includes(value)){
 
-        // MOSTRA
+        // MOSTRA CARD
         card.style.display = 'block';
 
       }else{
 
-        // ESCONDE
+        // ESCONDE CARD
         card.style.display = 'none';
       }
-
     });
-
   });
 
 </script>
