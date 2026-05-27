@@ -1185,40 +1185,22 @@
   // =========================================================
 
   const music = document.getElementById('bg-music');
-
   const muteBtn = document.getElementById('mute-btn');
 
-  // DEFINE VOLUME
   music.volume = 0.2;
 
-  // INICIA MÚSICA NO PRIMEIRO CLIQUE
   document.addEventListener('click', () => {
-
     music.play();
+  }, { once: true });
 
-  }, { once:true });
-
-  // BOTÃO DE MÚSICA
   muteBtn.addEventListener('click', () => {
-
-    // VERIFICA SE ESTÁ MUTADO
-    if(music.muted){
-
-      // DESMUTA
+    if (music.muted) {
       music.muted = false;
-
-      // ALTERA TEXTO
       muteBtn.innerHTML = '🔊 Música';
-
-    }else{
-
-      // MUTA
+    } else {
       music.muted = true;
-
-      // ALTERA TEXTO
       muteBtn.innerHTML = '🔇 Mutado';
     }
-
   });
 
   // =========================================================
@@ -1226,34 +1208,18 @@
   // =========================================================
 
   const searchInput = document.getElementById('searchCommands');
-
   const commandCards = document.querySelectorAll('.command-card');
 
-  // MONITORA DIGITAÇÃO
   searchInput.addEventListener('keyup', () => {
-
-    // TEXTO DIGITADO
     const value = searchInput.value.toLowerCase();
-
-    // PERCORRE CARDS
     commandCards.forEach(card => {
-
-      // TEXTO INTERNO
       const text = card.innerText.toLowerCase();
-
-      // VERIFICA PESQUISA      if(text.includes(value)){
-
-        // MOSTRA
+      if (text.includes(value)) {
         card.style.display = 'block';
-
-      }else{
-
-        // ESCONDE
+      } else {
         card.style.display = 'none';
       }
-
     });
-
   });
 
   // =========================================================
@@ -1268,7 +1234,6 @@
 
   // VARIAÇÃO DOS PLAYERS (MAIS LENTA, ENTRE 23 E 87)
   function updatePlayers() {
-    // MUDA O NÚMERO DE PLAYERS DE FORMA SUAVE (-3 A +3)
     let change = Math.floor(Math.random() * 7) - 3;
     let newPlayers = currentPlayers + change;
     
@@ -1299,10 +1264,10 @@
     pingCountElement.textContent = currentPing;
   }
 
-  // ATUALIZA PLAYERS A CADA 8 SEGUNDOS (VARIAÇÃO REALISTA)
+  // ATUALIZA PLAYERS A CADA 8 SEGUNDOS
   setInterval(updatePlayers, 8000);
   
-  // ATUALIZA PING A CADA 2.5 SEGUNDOS (VARIAÇÃO MAIS RÁPIDA)
+  // ATUALIZA PING A CADA 2.5 SEGUNDOS
   setInterval(updatePing, 2500);
 
   // INICIALIZA COM VALORES ALEATÓRIOS REALISTAS
