@@ -452,7 +452,8 @@
     /* MAPA ONLINE */
     /* ========================================================= */
 
-    .map-container{
+    .map-wrapper{
+      position:relative;
       margin-top:40px;
       border-radius:20px;
       overflow:hidden;
@@ -460,11 +461,87 @@
       box-shadow:0 0 25px rgba(34,197,94,0.15);
     }
 
+    .map-container{
+      width:100%;
+      transition:all 0.3s ease;
+    }
+
     .map-container iframe{
       width:100%;
       height:700px;
       border:none;
       background:black;
+      display:block;
+    }
+
+    /* BOTÕES DO MAPA - CANTO INFERIOR ESQUERDO */
+    .map-btn{
+      position:absolute;
+      bottom:15px;
+      left:15px;
+      z-index:100;
+      background:rgba(0,0,0,0.75);
+      backdrop-filter:blur(8px);
+      border:1px solid rgba(34,197,94,0.5);
+      color:#22c55e;
+      padding:10px 16px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:bold;
+      font-size:0.9rem;
+      transition:0.3s;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .map-btn:hover{
+      background:#22c55e;
+      color:black;
+      border-color:#22c55e;
+    }
+
+    .close-map-btn{
+      position:absolute;
+      bottom:15px;
+      left:15px;
+      z-index:101;
+      background:rgba(0,0,0,0.8);
+      backdrop-filter:blur(8px);
+      border:1px solid #ff4444;
+      color:#ff4444;
+      padding:10px 16px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:bold;
+      font-size:0.9rem;
+      transition:0.3s;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .close-map-btn:hover{
+      background:#ff4444;
+      color:white;
+      border-color:#ff4444;
+    }
+
+    /* MODO TELA CHEIA */
+    .map-wrapper.fullscreen{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100vw;
+      height:100vh;
+      z-index:10001;
+      margin:0;
+      border-radius:0;
+      border:2px solid #22c55e;
+    }
+
+    .map-wrapper.fullscreen .map-container iframe{
+      height:100vh;
     }
 
     /* ========================================================= */
@@ -511,6 +588,10 @@
         height:500px;
       }
 
+      .map-wrapper.fullscreen .map-container iframe{
+        height:100vh;
+      }
+
       #mute-btn{
         bottom:15px;
         right:15px;
@@ -525,6 +606,13 @@
 
       .server-panel-item{
         font-size:0.9rem;
+      }
+
+      .map-btn, .close-map-btn{
+        padding:6px 12px;
+        font-size:0.75rem;
+        bottom:10px;
+        left:10px;
       }
     }
 
@@ -1091,15 +1179,18 @@
       Explore o mundo do METAMINE diretamente pelo navegador em TEMPO REAL.
     </p>
 
-    <!-- IFRAME DO BLUEMAP -->
-
-    <div class="map-container">
-
-      <iframe
-        src="https://appearance-dylan-tampa-distinct.trycloudflare.com"
-        loading="lazy">
-      </iframe>
-
+    <!-- MAPA COM BOTÃO DE TELA CHEIA (CANTO INFERIOR ESQUERDO) -->
+    <div class="map-wrapper" id="mapWrapper">
+      <div class="map-container">
+        <iframe
+          src="https://appearance-dylan-tampa-distinct.trycloudflare.com"
+          loading="lazy"
+          id="blueMapIframe">
+        </iframe>
+      </div>
+      <button class="map-btn" id="fullscreenBtn">
+        ⛶ Tela Cheia
+      </button>
     </div>
 
   </div>
@@ -1232,7 +1323,6 @@
   let currentPlayers = 47;
   let currentPing = 32;
 
-  // VARIAÇÃO DOS PLAYERS (MAIS LENTA, ENTRE 23 E 87)
   function updatePlayers() {
     let change = Math.floor(Math.random() * 7) - 3;
     let newPlayers = currentPlayers + change;
@@ -1248,7 +1338,6 @@
     playersCountElement.textContent = currentPlayers;
   }
 
-  // VARIAÇÃO DO PING (MAIS RÁPIDO, ENTRE 18 E 120)
   function updatePing() {
     let change = Math.floor(Math.random() * 15) - 7;
     let newPing = currentPing + change;
@@ -1264,17 +1353,57 @@
     pingCountElement.textContent = currentPing;
   }
 
-  // ATUALIZA PLAYERS A CADA 8 SEGUNDOS
   setInterval(updatePlayers, 8000);
-  
-  // ATUALIZA PING A CADA 2.5 SEGUNDOS
   setInterval(updatePing, 2500);
 
-  // INICIALIZA COM VALORES ALEATÓRIOS REALISTAS
   currentPlayers = Math.floor(Math.random() * (87 - 23 + 1) + 23);
   currentPing = Math.floor(Math.random() * (120 - 18 + 1) + 18);
   playersCountElement.textContent = currentPlayers;
   pingCountElement.textContent = currentPing;
+
+  // =========================================================
+  // SISTEMA DE TELA CHEIA DO MAPA (BOTÕES NO CANTO INFERIOR ESQUERDO)
+  // =========================================================
+
+  const mapWrapper = document.getElementById('mapWrapper');
+  const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+  function enterFullscreen() {
+    mapWrapper.classList.add('fullscreen');
+    
+    // CRIA BOTÃO DE FECHAR NO CANTO INFERIOR ESQUERDO
+    const closeBtn = document.createElement('button');
+    closeBtn.id = 'closeFullscreenBtn';
+    closeBtn.className = 'close-map-btn';
+    closeBtn.innerHTML = '✕ Sair da Tela Cheia';
+    closeBtn.onclick = exitFullscreen;
+    mapWrapper.appendChild(closeBtn);
+    
+    // ESCONDE O BOTÃO DE ABRIR
+    fullscreenBtn.style.display = 'none';
+  }
+
+  function exitFullscreen() {
+    mapWrapper.classList.remove('fullscreen');
+    
+    // REMOVE O BOTÃO DE FECHAR
+    const closeBtn = document.getElementById('closeFullscreenBtn');
+    if (closeBtn) {
+      closeBtn.remove();
+    }
+    
+    // MOSTRA O BOTÃO DE ABRIR
+    fullscreenBtn.style.display = 'flex';
+  }
+
+  fullscreenBtn.addEventListener('click', enterFullscreen);
+
+  // ESC SAI DA TELA CHEIA
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mapWrapper.classList.contains('fullscreen')) {
+      exitFullscreen();
+    }
+  });
 
 </script>
 
