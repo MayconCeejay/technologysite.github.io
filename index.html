@@ -1,16 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>METAMINE SERVER BR</title>
+  <!-- ========================================================= -->
+  <!-- CONFIGURAÇÕES BÁSICAS -->
+  <!-- ========================================================= -->
 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ========================================================= -->
+  <!-- FAVICON PERSONALIZADA -->
+  <!-- COLOQUE favicon.png DENTRO DA PASTA /imagens -->
+  <!-- ========================================================= -->
+
+  <link rel="icon" href="./imagens/favicon.png?v=2">
+  <link rel="shortcut icon" href="./imagens/favicon.png?v=2" type="image/png">
+  <link rel="apple-touch-icon" href="./imagens/favicon.png?v=2">
+
+  <!-- ========================================================= -->
+  <!-- TÍTULO DO SITE -->
+  <!-- ========================================================= -->
+
+  <title>METAMINE Server BR</title>
+
+  <!-- ========================================================= -->
   <!-- FONTES -->
+  <!-- ========================================================= -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- ========================================================= -->
+  <!-- CSS -->
+  <!-- ========================================================= -->
 
   <style>
 
@@ -22,13 +47,15 @@
       scroll-behavior:smooth;
     }
 
+    /* BODY */
     body{
-      font-family:'Inter',sans-serif;
+      font-family:'Inter', sans-serif;
       background:#020617;
       color:#e2e8f0;
       overflow-x:hidden;
     }
 
+    /* SCROLLBAR */
     body::-webkit-scrollbar{
       width:10px;
     }
@@ -38,7 +65,10 @@
       border-radius:10px;
     }
 
-    /* BOTÃO MÚSICA */
+    /* ========================================================= */
+    /* BOTÃO DE MÚSICA */
+    /* ========================================================= */
+
     #mute-btn{
       position:fixed;
       bottom:20px;
@@ -60,7 +90,10 @@
       border-color:#22c55e;
     }
 
+    /* ========================================================= */
     /* LOGO FIXA */
+    /* ========================================================= */
+
     .logo-fixo{
       position:fixed;
       top:20px;
@@ -75,12 +108,24 @@
     }
 
     @keyframes pulse{
-      0%{ transform:scale(1); }
-      50%{ transform:scale(1.03); }
-      100%{ transform:scale(1); }
+
+      0%{
+        transform:scale(1);
+      }
+
+      50%{
+        transform:scale(1.03);
+      }
+
+      100%{
+        transform:scale(1);
+      }
     }
 
+    /* ========================================================= */
     /* MENU */
+    /* ========================================================= */
+
     nav{
       position:fixed;
       top:0;
@@ -108,9 +153,13 @@
       text-shadow:0 0 10px #22c55e;
     }
 
+    /* ========================================================= */
     /* HERO */
+    /* ========================================================= */
+
     .hero{
       min-height:100vh;
+
       background:
       linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
       url('imagens/img1.jpeg');
@@ -122,15 +171,17 @@
       align-items:center;
       justify-content:center;
       text-align:center;
+
       padding:30px;
     }
 
     .hero-content{
-      max-width:950px;
+      max-width:900px;
       animation:fadeUp 1.5s ease;
     }
 
     @keyframes fadeUp{
+
       from{
         opacity:0;
         transform:translateY(40px);
@@ -143,7 +194,7 @@
     }
 
     .hero h1{
-      font-family:'Orbitron',sans-serif;
+      font-family:'Orbitron', sans-serif;
       font-size:5rem;
       color:#22c55e;
       text-shadow:0 0 25px rgba(34,197,94,0.7);
@@ -156,7 +207,10 @@
       color:#cbd5e1;
     }
 
+    /* ========================================================= */
     /* BOTÕES */
+    /* ========================================================= */
+
     .btns{
       margin-top:40px;
       display:flex;
@@ -195,7 +249,10 @@
       background:rgba(255,255,255,0.15);
     }
 
-    /* SEÇÕES */
+    /* ========================================================= */
+    /* SESSÕES */
+    /* ========================================================= */
+
     .section{
       position:relative;
       padding:120px 20px;
@@ -216,7 +273,7 @@
     }
 
     .section h2{
-      font-family:'Orbitron',sans-serif;
+      font-family:'Orbitron', sans-serif;
       font-size:3rem;
       color:#22c55e;
       margin-bottom:25px;
@@ -229,10 +286,13 @@
       color:#dbe4ee;
     }
 
+    /* ========================================================= */
     /* CARDS */
+    /* ========================================================= */
+
     .cards{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
       gap:25px;
       margin-top:40px;
     }
@@ -258,42 +318,10 @@
       font-size:1.4rem;
     }
 
-    /* STATUS SERVER */
-    .status-grid{
-      margin-top:40px;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:20px;
-    }
+    /* ========================================================= */
+    /* BOX DO SERVIDOR */
+    /* ========================================================= */
 
-    .status-box{
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:20px;
-      padding:30px;
-      text-align:center;
-    }
-
-    .status-box h3{
-      color:#22c55e;
-      margin-bottom:15px;
-    }
-
-    .status-value{
-      font-size:2.2rem;
-      font-weight:900;
-      color:white;
-    }
-
-    .online{
-      color:#22c55e;
-    }
-
-    .offline{
-      color:#ef4444;
-    }
-
-    /* SERVER BOX */
     .server-box{
       margin-top:40px;
       background:rgba(0,0,0,0.5);
@@ -313,46 +341,28 @@
       font-weight:bold;
     }
 
-    /* PESQUISA */
-    #searchCommands{
+    /* ========================================================= */
+    /* MAPA ONLINE */
+    /* ========================================================= */
+
+    .map-container{
+      margin-top:40px;
+      border-radius:20px;
+      overflow:hidden;
+      border:2px solid rgba(34,197,94,0.4);
+      box-shadow:0 0 25px rgba(34,197,94,0.15);
+    }
+
+    .map-container iframe{
       width:100%;
-      margin-top:30px;
-      padding:15px;
-      border-radius:12px;
+      height:700px;
       border:none;
-      background:rgba(255,255,255,0.08);
-      color:white;
-      font-size:1rem;
-      outline:none;
+      background:black;
     }
 
-    #searchCommands::placeholder{
-      color:#cbd5e1;
-    }
-
-    /* AUTOSUGESTÃO */
-    #suggestions{
-      margin-top:15px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    .suggestion{
-      background:rgba(34,197,94,0.15);
-      color:#22c55e;
-      border:1px solid rgba(34,197,94,0.3);
-      padding:8px 14px;
-      border-radius:999px;
-      cursor:pointer;
-      transition:0.3s;
-      font-size:0.9rem;
-    }
-
-    .suggestion:hover{
-      background:#22c55e;
-      color:black;
-    }
+    /* ========================================================= */
+    /* FOOTER */
+    /* ========================================================= */
 
     footer{
       background:black;
@@ -362,7 +372,10 @@
       border-top:1px solid rgba(255,255,255,0.08);
     }
 
-    /* MOBILE */
+    /* ========================================================= */
+    /* RESPONSIVIDADE */
+    /* ========================================================= */
+
     @media(max-width:900px){
 
       .logo-fixo{
@@ -387,41 +400,55 @@
         padding:30px;
       }
 
+      .map-container iframe{
+        height:500px;
+      }
+
       #mute-btn{
         bottom:15px;
         right:15px;
         font-size:0.8rem;
         padding:8px 12px;
       }
-
     }
 
   </style>
+
 </head>
 
 <body>
 
-<!-- BOTÃO MÚSICA -->
+<!-- ========================================================= -->
+<!-- BOTÃO DE MÚSICA -->
+<!-- ========================================================= -->
+
 <button id="mute-btn">🔊 Música</button>
 
-<!-- ÁUDIO -->
+<!-- ========================================================= -->
+<!-- MÚSICA -->
+<!-- ========================================================= -->
+
 <audio id="bg-music" loop>
   <source src="musicas/musica.mp3" type="audio/mpeg">
 </audio>
 
+<!-- ========================================================= -->
 <!-- LOGO -->
+<!-- ========================================================= -->
+
 <div class="logo-fixo">
-  <img src="imagens/logo.png">
+  <img src="imagens/logo.png" alt="Logo">
 </div>
 
+<!-- ========================================================= -->
 <!-- MENU -->
+<!-- ========================================================= -->
+
 <nav>
 
   <a href="#sobre">Sobre</a>
 
   <a href="#features">Recursos</a>
-
-  <a href="#status">Status</a>
 
   <a href="#economia">Economia</a>
 
@@ -429,11 +456,17 @@
 
   <a href="#comandos">Comandos</a>
 
+  <!-- NOVA GUIA -->
+  <a href="#mapaonline">Mapa On-Line</a>
+
   <a href="#entrar">Entrar</a>
 
 </nav>
 
+<!-- ========================================================= -->
 <!-- HERO -->
+<!-- ========================================================= -->
+
 <section class="hero">
 
   <div class="hero-content">
@@ -461,7 +494,10 @@
 
 </section>
 
+<!-- ========================================================= -->
 <!-- SOBRE -->
+<!-- ========================================================= -->
+
 <section class="section" id="sobre" style="background-image:url('imagens/img2.jpeg');">
 
   <div class="overlay">
@@ -470,45 +506,17 @@
 
     <p>
       O METAMINE foi criado para trazer a sensação clássica do Minecraft Survival,
-      mas com melhorias modernas que deixam o mundo mais vivo,
-      mais social e mais imersivo.
+      mas com melhorias modernas que deixam o mundo mais vivo, mais social e mais imersivo.
     </p>
-
-    <div class="cards">
-
-      <div class="card">
-        <h3>🌎 Mundo Vivo</h3>
-
-        <p>
-          NPCs interativos, eventos, cidades,
-          exploração e atmosfera cinematográfica.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🏡 Proteção de Terreno</h3>
-
-        <p>
-          Construa sua base com segurança usando sistema de proteção.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🧍 Comunidade</h3>
-
-        <p>
-          Um servidor focado em amizade,
-          economia e construção entre jogadores.
-        </p>
-      </div>
-
-    </div>
 
   </div>
 
 </section>
 
+<!-- ========================================================= -->
 <!-- RECURSOS -->
+<!-- ========================================================= -->
+
 <section class="section" id="features" style="background-image:url('imagens/img3.jpg');">
 
   <div class="overlay">
@@ -518,97 +526,32 @@
     <div class="cards">
 
       <div class="card">
+
         <h3>💰 Economia</h3>
-        <p>Sistema econômico equilibrado com lojas entre jogadores.</p>
+
+        <p>
+          Sistema econômico equilibrado com lojas entre jogadores.
+        </p>
+
       </div>
 
       <div class="card">
-        <h3>📜 Quests</h3>
-        <p>Missões e progressão para explorar o servidor e ganhar recompensas.</p>
-      </div>
 
-      <div class="card">
-        <h3>🌐 Crossplay</h3>
-        <p>Compatível com Java e Bedrock.</p>
-      </div>
-
-      <div class="card">
-        <h3>🎭 SkinRestorer</h3>
-        <p>Skins funcionando para jogadores premium e piratas.</p>
-      </div>
-
-      <div class="card">
         <h3>🗺️ BlueMap</h3>
 
         <p>
-          Explore o mapa online do servidor.
+          Explore o mundo através do mapa online do servidor.
         </p>
-
-        <div class="btns">
-
-          <a
-            href="https://mayconceejay.github.io/MetamineServerBR/#features"
-            class="btn btn-dark"
-            target="_blank"
-          >
-            Abrir Mapa
-          </a>
-
-        </div>
 
       </div>
 
       <div class="card">
-        <h3>⚔️ Eventos</h3>
-        <p>Eventos automáticos, drops, XP rain e experiências sociais.</p>
-      </div>
 
-    </div>
+        <h3>🌐 Crossplay</h3>
 
-  </div>
-
-</section>
-
-<!-- STATUS -->
-<section class="section" id="status" style="background-image:url('imagens/img5.png');">
-
-  <div class="overlay">
-
-    <h2>📡 Status do Servidor</h2>
-
-    <p style="text-align:center;">
-      Dados em tempo real usando API pública do Minecraft.
-    </p>
-
-    <div class="status-grid">
-
-      <div class="status-box">
-
-        <h3>🟢 STATUS</h3>
-
-        <div class="status-value" id="server-status">
-          Verificando...
-        </div>
-
-      </div>
-
-      <div class="status-box">
-
-        <h3>👥 PLAYERS ONLINE</h3>
-
-        <div class="status-value" id="players-online">
-          0
-        </div>
-
-      </div>
-
-      <div class="status-box">
-
-        <h3>📦 VERSÃO</h3>
-
-        <div class="status-value" id="server-version">
-          ---
-        </div>
+        <p>
+          Compatível com Java e Bedrock.
+        </p>
 
       </div>
 
@@ -618,7 +561,10 @@
 
 </section>
 
+<!-- ========================================================= -->
 <!-- ECONOMIA -->
+<!-- ========================================================= -->
+
 <section class="section" id="economia" style="background-image:url('imagens/img4.png');">
 
   <div class="overlay">
@@ -627,35 +573,18 @@
 
     <p>
       O METAMINE valoriza uma economia equilibrada.
-      Aqui os jogadores podem abrir lojas,
-      negociar recursos, construir cidades
-      e criar sua própria história dentro do servidor.
+      Aqui os jogadores podem abrir lojas, negociar recursos,
+      construir cidades e criar sua própria história dentro do servidor.
     </p>
-
-    <div class="cards">
-
-      <div class="card">
-        <h3>🏪 Player Shops</h3>
-        <p>Crie lojas reais usando QuickShop.</p>
-      </div>
-
-      <div class="card">
-        <h3>🪙 Sistema Balanceado</h3>
-        <p>Economia feita para durar sem inflação absurda.</p>
-      </div>
-
-      <div class="card">
-        <h3>🌱 Progressão Natural</h3>
-        <p>Evolua jogando e explorando.</p>
-      </div>
-
-    </div>
 
   </div>
 
 </section>
 
+<!-- ========================================================= -->
 <!-- MULTIVERSE -->
+<!-- ========================================================= -->
+
 <section class="section" id="multiverse" style="background-image:url('imagens/img6.png');">
 
   <div class="overlay">
@@ -668,30 +597,14 @@
       construções e possibilidades.
     </p>
 
-    <div class="cards">
-
-      <div class="card">
-        <h3>🌌 Exploração</h3>
-        <p>Mundos diferentes para explorar e conquistar.</p>
-      </div>
-
-      <div class="card">
-        <h3>🏰 Construção</h3>
-        <p>Crie cidades, bases e projetos gigantes.</p>
-      </div>
-
-      <div class="card">
-        <h3>🎮 Experiência Social</h3>
-        <p>Um servidor feito para jogar junto.</p>
-      </div>
-
-    </div>
-
   </div>
 
 </section>
 
+<!-- ========================================================= -->
 <!-- COMANDOS -->
+<!-- ========================================================= -->
+
 <section class="section" id="comandos" style="background-image:url('imagens/img7.png');">
 
   <div class="overlay">
@@ -699,7 +612,7 @@
     <h2>📖 Comandos do Servidor</h2>
 
     <p style="text-align:center;">
-      Pesquise rapidamente os principais comandos disponíveis no METAMINE.
+      Pesquise rapidamente os principais comandos do servidor.
     </p>
 
     <!-- PESQUISA -->
@@ -707,246 +620,53 @@
       type="text"
       id="searchCommands"
       placeholder="Pesquisar comando..."
+      style="
+      width:100%;
+      margin-top:30px;
+      padding:15px;
+      border-radius:12px;
+      border:none;
+      background:rgba(255,255,255,0.08);
+      color:white;
+      font-size:1rem;
+      "
     >
 
-    <!-- AUTOSUGESTÕES -->
-    <div id="suggestions"></div>
-
-    <!-- CONTAINER -->
+    <!-- CARDS -->
     <div class="cards" id="commandsContainer">
 
-      <!-- WARPS -->
       <div class="card command-card">
 
         <h3>🌍 Warps</h3>
 
         <p>
           /warp world<br>
-          Mundo de aventura.<br><br>
-
           /warp survival<br>
-          Mundo survival principal.<br><br>
-
-          /warp metamine<br>
-          Mundo antigo do servidor.<br><br>
-
-          /warp loja<br>
-          Área de lojas.
+          /warp loja
         </p>
 
       </div>
 
-      <!-- TELEPORTE -->
-      <div class="card command-card">
-
-        <h3>🏡 Casas e Teleporte</h3>
-
-        <p>
-          /sethome<br>
-          Define uma casa.<br><br>
-
-          /home<br>
-          Vai para sua casa.<br><br>
-
-          /delhome<br>
-          Remove uma casa.<br><br>
-
-          /homes<br>
-          Lista suas casas.<br><br>
-
-          /tpa<br>
-          Pedido de teleporte.<br><br>
-
-          /tpaccept<br>
-          Aceita teleporte.<br><br>
-
-          /tpdeny<br>
-          Recusa teleporte.<br><br>
-
-          /back<br>
-          Volta ao último local.<br><br>
-
-          /spawn<br>
-          Volta para o spawn.
-        </p>
-
-      </div>
-
-      <!-- ECONOMIA -->
       <div class="card command-card">
 
         <h3>💰 Economia</h3>
 
         <p>
           /balance<br>
-          /bal<br>
           /money<br>
-          Ver dinheiro.<br><br>
-
-          /baltop<br>
-          /moneytop<br>
-          Ranking dos mais ricos.<br><br>
-
-          /pay<br>
-          Enviar dinheiro.<br><br>
-
-          /worth<br>
-          Ver valor do item.<br><br>
-
-          /sell<br>
-          Vender itens.<br><br>
-
-          /sell hand<br>
-          Vender item da mão.
+          /pay
         </p>
 
       </div>
 
-      <!-- LOJAS -->
       <div class="card command-card">
 
-        <h3>🏪 Player Shops</h3>
+        <h3>🏡 Casas</h3>
 
         <p>
-          /qs help<br>
-          Ajuda do sistema.<br><br>
-
-          /qs find<br>
-          Procurar item.<br><br>
-
-          /shop<br>
-          Sistema de lojas.<br><br>
-
-          Para criar loja:<br>
-          1. Coloque um baú.<br>
-          2. Clique no baú segurando item.<br>
-          3. Configure preço.
-        </p>
-
-      </div>
-
-      <!-- CLAIMS -->
-      <div class="card command-card">
-
-        <h3>🛡️ Claims e Proteções</h3>
-
-        <p>
-          /claim<br>
-          Criar proteção.<br><br>
-
-          /abandonclaim<br>
-          Remover claim atual.<br><br>
-
-          /trust<br>
-          Dar permissão.<br><br>
-
-          /containertrust<br>
-          Permissão para baús.<br><br>
-
-          /accesstrust<br>
-          Permissão para botões.<br><br>
-
-          /permissiontrust<br>
-          Permissão administrativa.<br><br>
-
-          /claimslist<br>
-          Lista terrenos.<br><br>
-
-          /trapped<br>
-          Sair preso.<br><br>
-
-          Subclaims:<br>
-          Terrenos dentro de terrenos.
-        </p>
-
-      </div>
-
-      <!-- SKINS -->
-      <div class="card command-card">
-
-        <h3>🎭 Skins</h3>
-
-        <p>
-          /skins<br>
-          Abrir menu de skins.<br><br>
-
-          /skin set<br>
-          Definir skin.<br><br>
-
-          /skin clear<br>
-          Limpar skin.<br><br>
-
-          /skin update<br>
-          Atualizar skin.
-        </p>
-
-      </div>
-
-      <!-- SKILLS -->
-      <div class="card command-card">
-
-        <h3>⚔️ Skills</h3>
-
-        <p>
-          /skills<br>
-          Abrir habilidades.<br><br>
-
-          /stats<br>
-          Ver stats.<br><br>
-
-          /mctop<br>
-          Ranking skills.<br><br>
-
-          /mcstats<br>
-          Informações skills.<br><br>
-
-          /ability<br>
-          Ativar habilidade.
-        </p>
-
-      </div>
-
-      <!-- SOCIAL -->
-      <div class="card command-card">
-
-        <h3>💬 Social</h3>
-
-        <p>
-          /msg<br>
-          Mensagem privada.<br><br>
-
-          /r<br>
-          Responder mensagem.<br><br>
-
-          /ignore<br>
-          Ignorar jogador.<br><br>
-
-          /mail<br>
-          Sistema de correio.
-        </p>
-
-      </div>
-
-      <!-- UTILIDADES -->
-      <div class="card command-card">
-
-        <h3>🧰 Utilidades</h3>
-
-        <p>
-          /help<br>
-          Ajuda.<br><br>
-
-          /menu<br>
-          Menu servidor.<br><br>
-
-          /rules<br>
-          Regras.<br><br>
-
-          /discord<br>
-          Discord.<br><br>
-
-          /site<br>
-          Site servidor.
+          /sethome<br>
+          /home<br>
+          /delhome
         </p>
 
       </div>
@@ -957,7 +677,39 @@
 
 </section>
 
+<!-- ========================================================= -->
+<!-- MAPA ONLINE -->
+<!-- ========================================================= -->
+
+<section class="section" id="mapaonline" style="background-image:url('imagens/img3.jpg');">
+
+  <div class="overlay">
+
+    <h2>🗺️ Mapa On-Line</h2>
+
+    <p style="text-align:center;">
+      Explore o mundo do METAMINE diretamente pelo navegador.
+    </p>
+
+    <!-- IFRAME DO BLUEMAP -->
+
+    <div class="map-container">
+
+      <iframe
+        src="https://appearance-dylan-tampa-distinct.trycloudflare.com"
+        loading="lazy">
+      </iframe>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ========================================================= -->
 <!-- ENTRAR -->
+<!-- ========================================================= -->
+
 <section class="section" id="entrar" style="background-image:url('imagens/img8.png');">
 
   <div class="overlay">
@@ -977,26 +729,16 @@
       </p>
 
       <p>
-        <span class="highlight">Porta Bedrock:</span><br>
-        23018
+        <span class="highlight">Porta:</span> 23018
       </p>
 
       <p>
-        <span class="highlight">Versão:</span><br>
-        Paper 26.1.2
-      </p>
-
-      <p>
-        <span class="highlight">Discord:</span><br>
-        https://discord.gg/e628mbmweg
+        <span class="highlight">Versão:</span> Paper 26.1.2
       </p>
 
       <div class="btns">
 
-        <a
-          href="https://discord.gg/e628mbmweg"
-          class="btn btn-green"
-        >
+        <a href="https://discord.gg/e628mbmweg" class="btn btn-green">
           Entrar Agora
         </a>
 
@@ -1008,7 +750,10 @@
 
 </section>
 
+<!-- ========================================================= -->
 <!-- FOOTER -->
+<!-- ========================================================= -->
+
 <footer>
 
   <p>🌍 METAMINE SERVER BR © 2026</p>
@@ -1019,173 +764,86 @@
 
 </footer>
 
-<!-- SCRIPT -->
+<!-- ========================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================================= -->
+
 <script>
 
-  /* =========================================
-     MÚSICA
-  ========================================= */
+  // =========================================================
+  // SISTEMA DE MÚSICA
+  // =========================================================
 
   const music = document.getElementById('bg-music');
+
   const muteBtn = document.getElementById('mute-btn');
 
+  // DEFINE VOLUME
   music.volume = 0.2;
 
+  // INICIA MÚSICA NO PRIMEIRO CLIQUE
   document.addEventListener('click', () => {
+
     music.play();
+
   }, { once:true });
 
+  // BOTÃO DE MÚSICA
   muteBtn.addEventListener('click', () => {
 
+    // VERIFICA SE ESTÁ MUTADO
     if(music.muted){
 
+      // DESMUTA
       music.muted = false;
+
+      // ALTERA TEXTO
       muteBtn.innerHTML = '🔊 Música';
 
     }else{
 
+      // MUTA
       music.muted = true;
+
+      // ALTERA TEXTO
       muteBtn.innerHTML = '🔇 Mutado';
-
     }
 
   });
 
-  /* =========================================
-     STATUS DO SERVIDOR
-  ========================================= */
+  // =========================================================
+  // SISTEMA DE PESQUISA DOS COMANDOS
+  // =========================================================
 
-  async function loadServerStatus(){
+  const searchInput = document.getElementById('searchCommands');
 
-    try{
+  const commandCards = document.querySelectorAll('.command-card');
 
-      // API JAVA
-      const response = await fetch(
-        'https://api.mcsrvstat.us/3/waggle-replacing.gl.joinmc.link'
-      );
+  // MONITORA DIGITAÇÃO
+  searchInput.addEventListener('keyup', () => {
 
-      const data = await response.json();
+    // TEXTO DIGITADO
+    const value = searchInput.value.toLowerCase();
 
-      const statusEl = document.getElementById('server-status');
-      const playersEl = document.getElementById('players-online');
-      const versionEl = document.getElementById('server-version');
-
-      if(data.online){
-
-        statusEl.innerHTML = 'ONLINE';
-        statusEl.classList.add('online');
-
-        playersEl.innerHTML =
-          data.players?.online || 0;
-
-        versionEl.innerHTML =
-          data.version || 'Desconhecida';
-
-      }else{
-
-        statusEl.innerHTML = 'OFFLINE';
-        statusEl.classList.add('offline');
-
-      }
-
-    }catch(error){
-
-      console.log(error);
-
-    }
-
-  }
-
-  loadServerStatus();
-
-  // ATUALIZA A CADA 30 SEGUNDOS
-  setInterval(loadServerStatus, 30000);
-
-  /* =========================================
-     PESQUISA DE COMANDOS
-  ========================================= */
-
-  const searchInput =
-    document.getElementById('searchCommands');
-
-  const commandCards =
-    document.querySelectorAll('.command-card');
-
-  const suggestions =
-    document.getElementById('suggestions');
-
-  // SUGESTÕES
-  const commandSuggestions = [
-
-    '/warp',
-    '/home',
-    '/sethome',
-    '/tpa',
-    '/spawn',
-    '/balance',
-    '/money',
-    '/pay',
-    '/sell',
-    '/claim',
-    '/trust',
-    '/skins',
-    '/skills',
-    '/msg',
-    '/discord',
-    '/shop'
-
-  ];
-
-  // CRIA AUTOSUGESTÃO
-  commandSuggestions.forEach(command => {
-
-    const btn = document.createElement('div');
-
-    btn.classList.add('suggestion');
-
-    btn.innerText = command;
-
-    btn.addEventListener('click', () => {
-
-      searchInput.value = command;
-
-      filterCommands(command.toLowerCase());
-
-    });
-
-    suggestions.appendChild(btn);
-
-  });
-
-  // FILTRO
-  function filterCommands(value){
-
+    // PERCORRE CARDS
     commandCards.forEach(card => {
 
-      const text =
-        card.innerText.toLowerCase();
+      // TEXTO INTERNO
+      const text = card.innerText.toLowerCase();
 
+      // VERIFICA PESQUISA
       if(text.includes(value)){
 
+        // MOSTRA
         card.style.display = 'block';
 
       }else{
 
+        // ESCONDE
         card.style.display = 'none';
-
       }
 
     });
-
-  }
-
-  // DIGITAÇÃO
-  searchInput.addEventListener('keyup', () => {
-
-    const value =
-      searchInput.value.toLowerCase();
-
-    filterCommands(value);
 
   });
 
