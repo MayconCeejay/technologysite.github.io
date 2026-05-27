@@ -345,11 +345,24 @@
 
 
 
+<!-- MENU SUPERIOR DE NAVEGAÇÃO -->
 <nav>
+  <!-- LINK PARA SESSÃO SOBRE -->
   <a href="#sobre">Sobre</a>
+
+  <!-- LINK PARA SESSÃO DE RECURSOS -->
   <a href="#features">Recursos</a>
+
+  <!-- LINK PARA SESSÃO DE ECONOMIA -->
   <a href="#economia">Economia</a>
+
+  <!-- LINK PARA SESSÃO MULTIVERSE -->
   <a href="#multiverse">Multiverse</a>
+
+  <!-- NOVA SESSÃO DE COMANDOS -->
+  <a href="#comandos">Comandos</a>
+
+  <!-- LINK PARA ENTRAR NO SERVIDOR -->
   <a href="#entrar">Entrar</a>
 </nav>
 
@@ -539,6 +552,253 @@
   </div>
 </section>
 
+<!-- SESSÃO DE COMANDOS DO SERVIDOR -->
+<section class="section" id="comandos" style="background-image: url('imagens/img7.png');">
+  <div class="overlay">
+
+    <!-- TÍTULO -->
+    <h2>📖 Comandos do Servidor</h2>
+
+    <!-- DESCRIÇÃO -->
+    <p style="text-align:center;">
+      Pesquise rapidamente os principais comandos disponíveis no METAMINE.
+    </p>
+
+    <!-- BARRA DE PESQUISA -->
+    <input
+      type="text"
+      id="searchCommands"
+      placeholder="Pesquisar comando..."
+      style="
+        width:100%;
+        margin-top:30px;
+        padding:15px;
+        border-radius:12px;
+        border:none;
+        background:rgba(255,255,255,0.08);
+        color:white;
+        font-size:1rem;
+      "
+    >
+
+    <!-- CONTAINER DOS CARDS -->
+    <div class="cards" id="commandsContainer">
+
+      <!-- CARD DE WARPS -->
+      <div class="card command-card">
+        <h3>🌍 Warps</h3>
+        <p>
+          /warp world<br>
+          Mundo de aventura.<br><br>
+
+          /warp survival<br>
+          Mundo survival principal.<br><br>
+
+          /warp metamine<br>
+          Mundo antigo do servidor.<br><br>
+
+          /warp loja<br>
+          Área de lojas.
+        </p>
+      </div>
+
+      <!-- CARD DE TELEPORTE -->
+      <div class="card command-card">
+        <h3>🏡 Casas e Teleporte</h3>
+        <p>
+          /sethome<br>
+          Define uma casa.<br><br>
+
+          /home<br>
+          Vai para sua casa.<br><br>
+
+          /delhome<br>
+          Remove uma casa.<br><br>
+
+          /homes<br>
+          Lista suas casas.<br><br>
+
+          /tpa<br>
+          Pedido de teleporte.<br><br>
+
+          /tpaccept<br>
+          Aceita teleporte.<br><br>
+
+          /tpdeny<br>
+          Recusa teleporte.<br><br>
+
+          /back<br>
+          Volta ao último local.<br><br>
+
+          /spawn<br>
+          Volta para o spawn.
+        </p>
+      </div>
+
+      <!-- CARD DE ECONOMIA -->
+      <div class="card command-card">
+        <h3>💰 Economia</h3>
+        <p>
+          /balance<br>
+          /bal<br>
+          /money<br>
+          Ver dinheiro.<br><br>
+
+          /baltop<br>
+          /moneytop<br>
+          Ranking dos mais ricos.<br><br>
+
+          /pay<br>
+          Enviar dinheiro.<br><br>
+
+          /worth<br>
+          Ver valor do item.<br><br>
+
+          /sell<br>
+          Vender itens.<br><br>
+
+          /sell hand<br>
+          Vender item da mão.
+        </p>
+      </div>
+
+      <!-- CARD DE LOJAS -->
+      <div class="card command-card">
+        <h3>🏪 Player Shops</h3>
+        <p>
+          /qs help<br>
+          Ajuda do sistema.<br><br>
+
+          /qs find<br>
+          Procurar item.<br><br>
+
+          /shop<br>
+          Sistema de lojas.<br><br>
+
+          Para criar loja:<br>
+          1. Coloque um baú.<br>
+          2. Clique no baú segurando item.<br>
+          3. Configure preço.
+        </p>
+      </div>
+
+      <!-- CARD DE CLAIMS -->
+      <div class="card command-card">
+        <h3>🛡️ Claims e Proteções</h3>
+        <p>
+          /claim<br>
+          Criar proteção.<br><br>
+
+          /abandonclaim<br>
+          Remover claim atual.<br><br>
+
+          /trust<br>
+          Dar permissão.<br><br>
+
+          /containertrust<br>
+          Permissão para baús.<br><br>
+
+          /accesstrust<br>
+          Permissão para botões.<br><br>
+
+          /permissiontrust<br>
+          Permissão administrativa.<br><br>
+
+          /claimslist<br>
+          Lista terrenos.<br><br>
+
+          /trapped<br>
+          Sair preso.<br><br>
+
+          Subclaims:<br>
+          Terrenos dentro de terrenos.
+        </p>
+      </div>
+
+      <!-- CARD DE SKINS -->
+      <div class="card command-card">
+        <h3>🎭 Skins</h3>
+        <p>
+          /skins<br>
+          Abrir menu de skins.<br><br>
+
+          /skin set<br>
+          Definir skin.<br><br>
+
+          /skin clear<br>
+          Limpar skin.<br><br>
+
+          /skin update<br>
+          Atualizar skin.
+        </p>
+      </div>
+
+      <!-- CARD DE SKILLS -->
+      <div class="card command-card">
+        <h3>⚔️ Skills</h3>
+        <p>
+          /skills<br>
+          Abrir habilidades.<br><br>
+
+          /stats<br>
+          Ver stats.<br><br>
+
+          /mctop<br>
+          Ranking skills.<br><br>
+
+          /mcstats<br>
+          Informações skills.<br><br>
+
+          /ability<br>
+          Ativar habilidade.
+        </p>
+      </div>
+
+      <!-- CARD SOCIAL -->
+      <div class="card command-card">
+        <h3>💬 Social</h3>
+        <p>
+          /msg<br>
+          Mensagem privada.<br><br>
+
+          /r<br>
+          Responder mensagem.<br><br>
+
+          /ignore<br>
+          Ignorar jogador.<br><br>
+
+          /mail<br>
+          Sistema de correio.
+        </p>
+      </div>
+
+      <!-- CARD UTILIDADES -->
+      <div class="card command-card">
+        <h3>🧰 Utilidades</h3>
+        <p>
+          /help<br>
+          Ajuda.<br><br>
+
+          /menu<br>
+          Menu servidor.<br><br>
+
+          /rules<br>
+          Regras.<br><br>
+
+          /discord<br>
+          Discord.<br><br>
+
+          /site<br>
+          Site servidor.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- SESSÃO PARA ENTRAR NO SERVIDOR -->
 <section class="section" id="entrar" style="background-image: url('imagens/img8.png');">
   <div class="overlay">
 
@@ -584,13 +844,55 @@
   }, { once: true });
 
   muteBtn.addEventListener('click', () => {
+    // VERIFICA SE A MÚSICA ESTÁ MUTADA
     if (music.muted) {
+
+      // DESMUTA A MÚSICA
       music.muted = false;
+
+      // ALTERA TEXTO DO BOTÃO
       muteBtn.innerHTML = '🔊 Música';
+
     } else {
+
+      // MUTA A MÚSICA
       music.muted = true;
+
+      // ALTERA TEXTO DO BOTÃO
       muteBtn.innerHTML = '🔇 Mutado';
     }
+  });
+
+  // SISTEMA DE PESQUISA DE COMANDOS
+  const searchInput = document.getElementById('searchCommands');
+
+  // PEGA TODOS OS CARDS DE COMANDO
+  const commandCards = document.querySelectorAll('.command-card');
+
+  // MONITORA DIGITAÇÃO DA PESQUISA
+  searchInput.addEventListener('keyup', () => {
+
+    // TEXTO DIGITADO
+    const value = searchInput.value.toLowerCase();
+
+    // PERCORRE TODOS OS CARDS
+    commandCards.forEach(card => {
+
+      // TEXTO DO CARD
+      const text = card.innerText.toLowerCase();
+
+      // VERIFICA SE ENCONTROU O TEXTO
+      if (text.includes(value)) {
+
+        // MOSTRA CARD
+        card.style.display = 'block';
+
+      } else {
+
+        // ESCONDE CARD
+        card.style.display = 'none';
+      }
+    });
   });
 </script>
 
