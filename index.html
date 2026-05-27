@@ -1,373 +1,462 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
+  <!-- ========================================================= -->
+  <!-- CONFIGURAÇÕES BÁSICAS DO SITE -->
+  <!-- ========================================================= -->
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO DO SITE -->
   <title>METAMINE Server BR</title>
+
+  <!-- ========================================================= -->
+  <!-- IMPORTAÇÃO DAS FONTES -->
+  <!-- ========================================================= -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
 
+  <!-- ========================================================= -->
+  <!-- CSS DO SITE -->
+  <!-- ========================================================= -->
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
+
+    /* RESET GERAL */
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #020617;
-      color: #e2e8f0;
-      overflow-x: hidden;
+    /* CORPO DO SITE */
+    body{
+      font-family:'Inter', sans-serif;
+      background:#020617;
+      color:#e2e8f0;
+      overflow-x:hidden;
     }
 
-    body::-webkit-scrollbar {
-      width: 10px;
+    /* SCROLLBAR */
+    body::-webkit-scrollbar{
+      width:10px;
     }
 
-    body::-webkit-scrollbar-thumb {
-      background: #22c55e;
-      border-radius: 10px;
+    body::-webkit-scrollbar-thumb{
+      background:#22c55e;
+      border-radius:10px;
     }
 
-    #mute-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 10000;
-      background: rgba(0,0,0,0.7);
-      color: white;
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 10px 14px;
-      border-radius: 12px;
-      cursor: pointer;
-      backdrop-filter: blur(8px);
-      transition: 0.3s;
-      font-weight: bold;
+    /* ========================================================= */
+    /* BOTÃO DE MÚSICA */
+    /* ========================================================= */
+
+    #mute-btn{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      z-index:10000;
+      background:rgba(0,0,0,0.7);
+      color:white;
+      border:1px solid rgba(255,255,255,0.1);
+      padding:10px 14px;
+      border-radius:12px;
+      cursor:pointer;
+      backdrop-filter:blur(8px);
+      transition:0.3s;
+      font-weight:bold;
     }
 
-    #mute-btn:hover {
-      background: rgba(34,197,94,0.3);
-      border-color: #22c55e;
+    #mute-btn:hover{
+      background:rgba(34,197,94,0.3);
+      border-color:#22c55e;
     }
 
-    .logo-fixo {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 9999;
-      animation: pulse 3s infinite;
+    /* ========================================================= */
+    /* LOGO FIXA */
+    /* ========================================================= */
+
+    .logo-fixo{
+      position:fixed;
+      top:20px;
+      left:20px;
+      z-index:9999;
+      animation:pulse 3s infinite;
     }
 
-    .logo-fixo img {
-      width: 120px;
-      filter: drop-shadow(0 0 15px rgba(34,197,94,0.6));
+    .logo-fixo img{
+      width:120px;
+      filter:drop-shadow(0 0 15px rgba(34,197,94,0.6));
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.03); }
-      100% { transform: scale(1); }
-    }
-
-    .personagem {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 1000;
-      pointer-events: none;
-      opacity: 0.85;
-    }
-
-    .personagem-esq {
-      left: 0;
-    }
-
-    .personagem-dir {
-      right: 0;
-    }
-
-    .personagem img {
-      height: 80vh;
-      max-width: 40vw;
-      object-fit: contain;
-      filter: drop-shadow(0 0 30px rgba(0,0,0,0.7));
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 999;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(10px);
-      padding: 18px;
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #22c55e;
-      text-shadow: 0 0 10px #22c55e;
-    }
-
-    .hero {
-      min-height: 100vh;
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('imagens/img1.jpeg');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 30px;
-    }
-
-    .hero-content {
-      max-width: 900px;
-      animation: fadeUp 1.5s ease;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
+    @keyframes pulse{
+      0%{
+        transform:scale(1);
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+
+      50%{
+        transform:scale(1.03);
+      }
+
+      100%{
+        transform:scale(1);
       }
     }
 
-    .hero h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 5rem;
-      color: #22c55e;
-      text-shadow: 0 0 25px rgba(34,197,94,0.7);
-      margin-bottom: 20px;
+    /* ========================================================= */
+    /* MENU SUPERIOR */
+    /* ========================================================= */
+
+    nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      z-index:999;
+      background:rgba(0,0,0,0.6);
+      backdrop-filter:blur(10px);
+      padding:18px;
+      display:flex;
+      justify-content:center;
+      gap:25px;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      flex-wrap:wrap;
     }
 
-    .hero p {
-      font-size: 1.4rem;
-      line-height: 1.8;
-      color: #cbd5e1;
+    nav a{
+      color:white;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
     }
 
-    .btns {
-      margin-top: 40px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
+    nav a:hover{
+      color:#22c55e;
+      text-shadow:0 0 10px #22c55e;
     }
 
-    .btn {
-      padding: 15px 30px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-      display: inline-block;
+    /* ========================================================= */
+    /* HERO */
+    /* ========================================================= */
+
+    .hero{
+      min-height:100vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+      url('imagens/img1.jpeg');
+
+      background-size:cover;
+      background-position:center;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+
+      padding:30px;
     }
 
-    .btn-green {
-      background: #22c55e;
-      color: black;
-      box-shadow: 0 0 20px rgba(34,197,94,0.4);
+    .hero-content{
+      max-width:900px;
+      animation:fadeUp 1.5s ease;
     }
 
-    .btn-green:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 30px rgba(34,197,94,0.8);
-    }
+    @keyframes fadeUp{
 
-    .btn-dark {
-      background: rgba(255,255,255,0.08);
-      color: white;
-      border: 1px solid rgba(255,255,255,0.15);
-    }
-
-    .btn-dark:hover {
-      background: rgba(255,255,255,0.15);
-    }
-
-    .section {
-      position: relative;
-      padding: 120px 20px;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
-
-    .overlay {
-      background: rgba(0,0,0,0.75);
-      max-width: 1200px;
-      margin: auto;
-      padding: 50px;
-      border-radius: 25px;
-      border: 1px solid rgba(255,255,255,0.06);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 0 40px rgba(0,0,0,0.4);
-    }
-
-    .section h2 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
-      color: #22c55e;
-      margin-bottom: 25px;
-      text-align: center;
-    }
-
-    .section p {
-      font-size: 1.15rem;
-      line-height: 1.9;
-      color: #dbe4ee;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
-      margin-top: 40px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.05);
-      padding: 30px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: 0.4s;
-      backdrop-filter: blur(6px);
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-      border-color: rgba(34,197,94,0.5);
-      box-shadow: 0 0 30px rgba(34,197,94,0.2);
-    }
-
-    .card h3 {
-      margin-bottom: 15px;
-      color: #22c55e;
-      font-size: 1.4rem;
-    }
-
-    .server-box {
-      margin-top: 40px;
-      background: rgba(0,0,0,0.5);
-      padding: 30px;
-      border-radius: 20px;
-      text-align: center;
-      border: 1px solid rgba(34,197,94,0.2);
-    }
-
-    .server-box p {
-      margin: 10px 0;
-      font-size: 1.1rem;
-    }
-
-    .highlight {
-      color: #22c55e;
-      font-weight: bold;
-    }
-
-    footer {
-      background: black;
-      text-align: center;
-      padding: 40px 20px;
-      color: #94a3b8;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    @media(max-width: 900px) {
-      .logo-fixo {
-        top: 10px;
-        left: 10px;
+      from{
+        opacity:0;
+        transform:translateY(40px);
       }
 
-      .logo-fixo img {
-        width: 70px;
-      }
-
-      nav {
-        padding-top: 70px;
-      }
-
-      #mute-btn {
-        bottom: 15px;
-        right: 15px;
-        font-size: 0.8rem;
-        padding: 8px 12px;
-      }
-      .personagem {
-        display: none;
-      }
-
-      .hero h1 {
-        font-size: 3rem;
-      }
-
-      nav {
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-
-      .overlay {
-        padding: 30px;
+      to{
+        opacity:1;
+        transform:translateY(0);
       }
     }
+
+    .hero h1{
+      font-family:'Orbitron', sans-serif;
+      font-size:5rem;
+      color:#22c55e;
+      text-shadow:0 0 25px rgba(34,197,94,0.7);
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:1.4rem;
+      line-height:1.8;
+      color:#cbd5e1;
+    }
+
+    /* ========================================================= */
+    /* BOTÕES */
+    /* ========================================================= */
+
+    .btns{
+      margin-top:40px;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:15px 30px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
+      display:inline-block;
+    }
+
+    .btn-green{
+      background:#22c55e;
+      color:black;
+      box-shadow:0 0 20px rgba(34,197,94,0.4);
+    }
+
+    .btn-green:hover{
+      transform:translateY(-3px);
+      box-shadow:0 0 30px rgba(34,197,94,0.8);
+    }
+
+    .btn-dark{
+      background:rgba(255,255,255,0.08);
+      color:white;
+      border:1px solid rgba(255,255,255,0.15);
+    }
+
+    .btn-dark:hover{
+      background:rgba(255,255,255,0.15);
+    }
+
+    /* ========================================================= */
+    /* SESSÕES */
+    /* ========================================================= */
+
+    .section{
+      position:relative;
+      padding:120px 20px;
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
+    }
+
+    .overlay{
+      background:rgba(0,0,0,0.75);
+      max-width:1200px;
+      margin:auto;
+      padding:50px;
+      border-radius:25px;
+      border:1px solid rgba(255,255,255,0.06);
+      backdrop-filter:blur(8px);
+      box-shadow:0 0 40px rgba(0,0,0,0.4);
+    }
+
+    .section h2{
+      font-family:'Orbitron', sans-serif;
+      font-size:3rem;
+      color:#22c55e;
+      margin-bottom:25px;
+      text-align:center;
+    }
+
+    .section p{
+      font-size:1.15rem;
+      line-height:1.9;
+      color:#dbe4ee;
+    }
+
+    /* ========================================================= */
+    /* CARDS */
+    /* ========================================================= */
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      gap:25px;
+      margin-top:40px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.05);
+      padding:30px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.4s;
+      backdrop-filter:blur(6px);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      border-color:rgba(34,197,94,0.5);
+      box-shadow:0 0 30px rgba(34,197,94,0.2);
+    }
+
+    .card h3{
+      margin-bottom:15px;
+      color:#22c55e;
+      font-size:1.4rem;
+    }
+
+    /* ========================================================= */
+    /* BOX DO SERVIDOR */
+    /* ========================================================= */
+
+    .server-box{
+      margin-top:40px;
+      background:rgba(0,0,0,0.5);
+      padding:30px;
+      border-radius:20px;
+      text-align:center;
+      border:1px solid rgba(34,197,94,0.2);
+    }
+
+    .server-box p{
+      margin:10px 0;
+      font-size:1.1rem;
+    }
+
+    .highlight{
+      color:#22c55e;
+      font-weight:bold;
+    }
+
+    /* ========================================================= */
+    /* IFRAME DO BLUEMAP */
+    /* ========================================================= */
+
+    .map-container{
+      margin-top:40px;
+      border-radius:20px;
+      overflow:hidden;
+      border:2px solid rgba(34,197,94,0.4);
+      box-shadow:0 0 25px rgba(34,197,94,0.15);
+    }
+
+    .map-container iframe{
+      width:100%;
+      height:700px;
+      border:none;
+      background:black;
+    }
+
+    /* ========================================================= */
+    /* RODAPÉ */
+    /* ========================================================= */
+
+    footer{
+      background:black;
+      text-align:center;
+      padding:40px 20px;
+      color:#94a3b8;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    /* ========================================================= */
+    /* RESPONSIVIDADE */
+    /* ========================================================= */
+
+    @media(max-width:900px){
+
+      .logo-fixo{
+        top:10px;
+        left:10px;
+      }
+
+      .logo-fixo img{
+        width:70px;
+      }
+
+      nav{
+        padding-top:70px;
+        gap:12px;
+      }
+
+      .hero h1{
+        font-size:3rem;
+      }
+
+      .overlay{
+        padding:30px;
+      }
+
+      #mute-btn{
+        bottom:15px;
+        right:15px;
+        font-size:0.8rem;
+        padding:8px 12px;
+      }
+
+      .map-container iframe{
+        height:500px;
+      }
+    }
+
   </style>
+
 </head>
 
 <body>
 
+<!-- ========================================================= -->
+<!-- BOTÃO DE MÚSICA -->
+<!-- ========================================================= -->
+
 <button id="mute-btn">🔊 Música</button>
+
+<!-- ========================================================= -->
+<!-- ÁUDIO DO SITE -->
+<!-- ========================================================= -->
 
 <audio id="bg-music" loop>
   <source src="musicas/musica.mp3" type="audio/mpeg">
 </audio>
 
+<!-- ========================================================= -->
+<!-- LOGO -->
+<!-- ========================================================= -->
+
 <div class="logo-fixo">
-  <img src="imagens/logo.png">
+  <img src="imagens/logo.png" alt="Logo">
 </div>
 
+<!-- ========================================================= -->
+<!-- MENU SUPERIOR -->
+<!-- ========================================================= -->
 
-
-<!-- MENU SUPERIOR DE NAVEGAÇÃO -->
 <nav>
-  <!-- LINK PARA SESSÃO SOBRE -->
+
   <a href="#sobre">Sobre</a>
 
-  <!-- LINK PARA SESSÃO DE RECURSOS -->
   <a href="#features">Recursos</a>
 
-  <!-- LINK PARA SESSÃO DE ECONOMIA -->
   <a href="#economia">Economia</a>
 
-  <!-- LINK PARA SESSÃO MULTIVERSE -->
   <a href="#multiverse">Multiverse</a>
 
-  <!-- NOVA SESSÃO DE COMANDOS -->
   <a href="#comandos">Comandos</a>
 
-  <!-- LINK PARA ENTRAR NO SERVIDOR -->
+  <!-- NOVA ABA DO MAPA ONLINE -->
+  <a href="#mapaonline">Mapa On-Line</a>
+
   <a href="#entrar">Entrar</a>
+
 </nav>
 
+<!-- ========================================================= -->
+<!-- HERO -->
+<!-- ========================================================= -->
+
 <section class="hero">
+
   <div class="hero-content">
+
     <h1>🌍 METAMINE SERVER BR</h1>
 
     <p>
@@ -376,13 +465,27 @@
     </p>
 
     <div class="btns">
-      <a href="https://discord.gg/e628mbmweg" class="btn btn-green">Entrar no Discord</a>
-      <a href="#entrar" class="btn btn-dark">Ver IP do servidor</a>
+
+      <a href="https://discord.gg/e628mbmweg" class="btn btn-green">
+        Entrar no Discord
+      </a>
+
+      <a href="#entrar" class="btn btn-dark">
+        Ver IP do servidor
+      </a>
+
     </div>
+
   </div>
+
 </section>
 
-<section class="section" id="sobre" style="background-image: url('imagens/img2.jpeg');">
+<!-- ========================================================= -->
+<!-- SOBRE -->
+<!-- ========================================================= -->
+
+<section class="section" id="sobre" style="background-image:url('imagens/img2.jpeg');">
+
   <div class="overlay">
 
     <h2>⚒️ Survival Vanilla+</h2>
@@ -395,32 +498,47 @@
     <div class="cards">
 
       <div class="card">
+
         <h3>🌎 Mundo Vivo</h3>
+
         <p>
           NPCs interativos, eventos, cidades, exploração e atmosfera cinematográfica.
         </p>
+
       </div>
 
       <div class="card">
+
         <h3>🏡 Proteção de Terreno</h3>
+
         <p>
           Construa sua base com segurança usando sistema de proteção.
         </p>
+
       </div>
 
       <div class="card">
+
         <h3>🧍 Comunidade</h3>
+
         <p>
           Um servidor focado em amizade, economia e construção entre jogadores.
         </p>
+
       </div>
 
     </div>
 
   </div>
+
 </section>
 
-<section class="section" id="features" style="background-image: url('imagens/img3.jpg');">
+<!-- ========================================================= -->
+<!-- RECURSOS -->
+<!-- ========================================================= -->
+
+<section class="section" id="features" style="background-image:url('imagens/img3.jpg');">
+
   <div class="overlay">
 
     <h2>🔥 Recursos do Servidor</h2>
@@ -428,53 +546,77 @@
     <div class="cards">
 
       <div class="card">
+
         <h3>💰 Economia</h3>
+
         <p>
           Sistema econômico equilibrado com lojas entre jogadores.
         </p>
+
       </div>
 
       <div class="card">
+
         <h3>📜 Quests</h3>
+
         <p>
           Missões e progressão para explorar o servidor e ganhar recompensas.
         </p>
+
       </div>
 
       <div class="card">
+
         <h3>🌐 Crossplay</h3>
+
         <p>
           Compatível com Java e Bedrock.
         </p>
+
       </div>
 
       <div class="card">
+
         <h3>🎭 SkinRestorer</h3>
+
         <p>
           Skins funcionando para jogadores premium e piratas.
         </p>
+
       </div>
 
       <div class="card">
+
         <h3>🗺️ BlueMap</h3>
+
         <p>
           Explore o mundo através do mapa online do servidor.
         </p>
+
       </div>
 
       <div class="card">
+
         <h3>⚔️ Eventos</h3>
+
         <p>
           Eventos automáticos, drops, XP rain e experiências sociais.
         </p>
+
       </div>
 
     </div>
 
   </div>
+
 </section>
 
-<section class="section" id="economia" style="background-image: url('imagens/img4.png');">
+<!-- ========================================================= -->
+<!-- ECONOMIA -->
+<!-- ========================================================= -->
+
+<section class="section" id="economia" style="background-image:url('imagens/img4.png');">
+
   <div class="overlay">
 
     <h2>💎 Economia entre Jogadores</h2>
@@ -485,35 +627,16 @@
       construir cidades e criar sua própria história dentro do servidor.
     </p>
 
-    <div class="cards">
-
-      <div class="card">
-        <h3>🏪 Player Shops</h3>
-        <p>
-          Crie lojas reais usando QuickShop.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🪙 Sistema Balanceado</h3>
-        <p>
-          Economia feita para durar sem inflação absurda.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🌱 Progressão Natural</h3>
-        <p>
-          Evolua jogando e explorando.
-        </p>
-      </div>
-
-    </div>
-
   </div>
+
 </section>
 
-<section class="section" id="multiverse" style="background-image: url('imagens/img6.png');">
+<!-- ========================================================= -->
+<!-- MULTIVERSE -->
+<!-- ========================================================= -->
+
+<section class="section" id="multiverse" style="background-image:url('imagens/img6.png');">
+
   <div class="overlay">
 
     <h2>🧭 Multiverse</h2>
@@ -524,376 +647,265 @@
       construções e possibilidades.
     </p>
 
-    <div class="cards">
-
-      <div class="card">
-        <h3>🌌 Exploração</h3>
-        <p>
-          Mundos diferentes para explorar e conquistar.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🏰 Construção</h3>
-        <p>
-          Crie cidades, bases e projetos gigantes.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🎮 Experiência Social</h3>
-        <p>
-          Um servidor feito para jogar junto.
-        </p>
-      </div>
-
-    </div>
-
   </div>
+
 </section>
 
-<!-- SESSÃO DE COMANDOS DO SERVIDOR -->
-<section class="section" id="comandos" style="background-image: url('imagens/img7.png');">
+<!-- ========================================================= -->
+<!-- COMANDOS -->
+<!-- ========================================================= -->
+
+<section class="section" id="comandos" style="background-image:url('imagens/img7.png');">
+
   <div class="overlay">
 
-    <!-- TÍTULO -->
     <h2>📖 Comandos do Servidor</h2>
 
-    <!-- DESCRIÇÃO -->
     <p style="text-align:center;">
       Pesquise rapidamente os principais comandos disponíveis no METAMINE.
     </p>
 
-    <!-- BARRA DE PESQUISA -->
+    <!-- CAMPO DE PESQUISA -->
     <input
       type="text"
       id="searchCommands"
       placeholder="Pesquisar comando..."
       style="
-        width:100%;
-        margin-top:30px;
-        padding:15px;
-        border-radius:12px;
-        border:none;
-        background:rgba(255,255,255,0.08);
-        color:white;
-        font-size:1rem;
+      width:100%;
+      margin-top:30px;
+      padding:15px;
+      border-radius:12px;
+      border:none;
+      background:rgba(255,255,255,0.08);
+      color:white;
+      font-size:1rem;
       "
     >
 
-    <!-- CONTAINER DOS CARDS -->
+    <!-- CARDS -->
     <div class="cards" id="commandsContainer">
 
-      <!-- CARD DE WARPS -->
       <div class="card command-card">
+
         <h3>🌍 Warps</h3>
+
         <p>
           /warp world<br>
-          Mundo de aventura.<br><br>
-
           /warp survival<br>
-          Mundo survival principal.<br><br>
-
           /warp metamine<br>
-          Mundo antigo do servidor.<br><br>
-
-          /warp loja<br>
-          Área de lojas.
+          /warp loja
         </p>
+
       </div>
 
-      <!-- CARD DE TELEPORTE -->
       <div class="card command-card">
-        <h3>🏡 Casas e Teleporte</h3>
+
+        <h3>🏡 Casas</h3>
+
         <p>
           /sethome<br>
-          Define uma casa.<br><br>
-
           /home<br>
-          Vai para sua casa.<br><br>
-
           /delhome<br>
-          Remove uma casa.<br><br>
-
-          /homes<br>
-          Lista suas casas.<br><br>
-
-          /tpa<br>
-          Pedido de teleporte.<br><br>
-
-          /tpaccept<br>
-          Aceita teleporte.<br><br>
-
-          /tpdeny<br>
-          Recusa teleporte.<br><br>
-
-          /back<br>
-          Volta ao último local.<br><br>
-
-          /spawn<br>
-          Volta para o spawn.
+          /homes
         </p>
+
       </div>
 
-      <!-- CARD DE ECONOMIA -->
       <div class="card command-card">
+
         <h3>💰 Economia</h3>
+
         <p>
           /balance<br>
           /bal<br>
           /money<br>
-          Ver dinheiro.<br><br>
-
-          /baltop<br>
-          /moneytop<br>
-          Ranking dos mais ricos.<br><br>
-
-          /pay<br>
-          Enviar dinheiro.<br><br>
-
-          /worth<br>
-          Ver valor do item.<br><br>
-
-          /sell<br>
-          Vender itens.<br><br>
-
-          /sell hand<br>
-          Vender item da mão.
+          /pay
         </p>
-      </div>
 
-      <!-- CARD DE LOJAS -->
-      <div class="card command-card">
-        <h3>🏪 Player Shops</h3>
-        <p>
-          /qs help<br>
-          Ajuda do sistema.<br><br>
-
-          /qs find<br>
-          Procurar item.<br><br>
-
-          /shop<br>
-          Sistema de lojas.<br><br>
-
-          Para criar loja:<br>
-          1. Coloque um baú.<br>
-          2. Clique no baú segurando item.<br>
-          3. Configure preço.
-        </p>
-      </div>
-
-      <!-- CARD DE CLAIMS -->
-      <div class="card command-card">
-        <h3>🛡️ Claims e Proteções</h3>
-        <p>
-          /claim<br>
-          Criar proteção.<br><br>
-
-          /abandonclaim<br>
-          Remover claim atual.<br><br>
-
-          /trust<br>
-          Dar permissão.<br><br>
-
-          /containertrust<br>
-          Permissão para baús.<br><br>
-
-          /accesstrust<br>
-          Permissão para botões.<br><br>
-
-          /permissiontrust<br>
-          Permissão administrativa.<br><br>
-
-          /claimslist<br>
-          Lista terrenos.<br><br>
-
-          /trapped<br>
-          Sair preso.<br><br>
-
-          Subclaims:<br>
-          Terrenos dentro de terrenos.
-        </p>
-      </div>
-
-      <!-- CARD DE SKINS -->
-      <div class="card command-card">
-        <h3>🎭 Skins</h3>
-        <p>
-          /skins<br>
-          Abrir menu de skins.<br><br>
-
-          /skin set<br>
-          Definir skin.<br><br>
-
-          /skin clear<br>
-          Limpar skin.<br><br>
-
-          /skin update<br>
-          Atualizar skin.
-        </p>
-      </div>
-
-      <!-- CARD DE SKILLS -->
-      <div class="card command-card">
-        <h3>⚔️ Skills</h3>
-        <p>
-          /skills<br>
-          Abrir habilidades.<br><br>
-
-          /stats<br>
-          Ver stats.<br><br>
-
-          /mctop<br>
-          Ranking skills.<br><br>
-
-          /mcstats<br>
-          Informações skills.<br><br>
-
-          /ability<br>
-          Ativar habilidade.
-        </p>
-      </div>
-
-      <!-- CARD SOCIAL -->
-      <div class="card command-card">
-        <h3>💬 Social</h3>
-        <p>
-          /msg<br>
-          Mensagem privada.<br><br>
-
-          /r<br>
-          Responder mensagem.<br><br>
-
-          /ignore<br>
-          Ignorar jogador.<br><br>
-
-          /mail<br>
-          Sistema de correio.
-        </p>
-      </div>
-
-      <!-- CARD UTILIDADES -->
-      <div class="card command-card">
-        <h3>🧰 Utilidades</h3>
-        <p>
-          /help<br>
-          Ajuda.<br><br>
-
-          /menu<br>
-          Menu servidor.<br><br>
-
-          /rules<br>
-          Regras.<br><br>
-
-          /discord<br>
-          Discord.<br><br>
-
-          /site<br>
-          Site servidor.
-        </p>
       </div>
 
     </div>
 
   </div>
+
 </section>
 
-<!-- SESSÃO PARA ENTRAR NO SERVIDOR -->
-<section class="section" id="entrar" style="background-image: url('imagens/img8.png');">
+<!-- ========================================================= -->
+<!-- MAPA ONLINE -->
+<!-- ========================================================= -->
+
+<section class="section" id="mapaonline" style="background-image:url('imagens/img3.jpg');">
+
+  <div class="overlay">
+
+    <h2>🗺️ Mapa On-Line</h2>
+
+    <p style="text-align:center;">
+      Explore o mundo do METAMINE diretamente pelo navegador.
+    </p>
+
+    <!-- ===================================================== -->
+    <!-- IFRAME DO BLUEMAP -->
+    <!-- ===================================================== -->
+
+    <!--
+      IMPORTANTE:
+      TROQUE O LINK ABAIXO PELO LINK DO SEU CLOUDFLARE
+    -->
+
+    <div class="map-container">
+
+      <iframe
+        src="https://appearance-dylan-tampa-distinct.trycloudflare.com"
+        loading="lazy">
+      </iframe>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- ENTRAR -->
+<!-- ========================================================= -->
+
+<section class="section" id="entrar" style="background-image:url('imagens/img8.png');">
+
   <div class="overlay">
 
     <h2>🚀 Entrar no Servidor</h2>
 
     <div class="server-box">
 
-      <p><span class="highlight">IP Java:</span><br>
-      waggle-replacing.gl.joinmc.link</p>
+      <p>
+        <span class="highlight">IP Java:</span><br>
+        waggle-replacing.gl.joinmc.link
+      </p>
 
-      <p><span class="highlight">IP Bedrock:</span><br>
-      waggle-replacing.gl.at.ply.gg</p>
+      <p>
+        <span class="highlight">IP Bedrock:</span><br>
+        waggle-replacing.gl.at.ply.gg
+      </p>
 
-      <p><span class="highlight">Porta:</span> 23018</p>
+      <p>
+        <span class="highlight">Porta:</span> 23018
+      </p>
 
-      <p><span class="highlight">Versão:</span> Paper 26.1.2</p>
-
-      <p><span class="highlight">Discord:</span><br>
-      https://discord.gg/e628mbmweg</p>
+      <p>
+        <span class="highlight">Versão:</span> Paper 26.1.2
+      </p>
 
       <div class="btns">
-        <a href="https://discord.gg/e628mbmweg" class="btn btn-green">Entrar Agora</a>
+
+        <a href="https://discord.gg/e628mbmweg" class="btn btn-green">
+          Entrar Agora
+        </a>
+
       </div>
 
     </div>
 
   </div>
+
 </section>
 
+<!-- ========================================================= -->
+<!-- RODAPÉ -->
+<!-- ========================================================= -->
+
 <footer>
-  <p>🌍 METAMINE SERVER BR © 2026</p>
-  <p>Um mundo vivo construído por jogadores.</p>
+
+  <p>
+    🌍 METAMINE SERVER BR © 2026
+  </p>
+
+  <p>
+    Um mundo vivo construído por jogadores.
+  </p>
+
 </footer>
 
+<!-- ========================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================================= -->
+
 <script>
+
+  // =========================================================
+  // SISTEMA DE MÚSICA
+  // =========================================================
+
   const music = document.getElementById('bg-music');
+
   const muteBtn = document.getElementById('mute-btn');
 
+  // DEFINE VOLUME
   music.volume = 0.2;
 
+  // INICIA MÚSICA AO PRIMEIRO CLIQUE
   document.addEventListener('click', () => {
+
     music.play();
-  }, { once: true });
 
+  }, { once:true });
+
+  // BOTÃO DE MUTAR
   muteBtn.addEventListener('click', () => {
-    // VERIFICA SE A MÚSICA ESTÁ MUTADA
-    if (music.muted) {
 
-      // DESMUTA A MÚSICA
+    // VERIFICA SE ESTÁ MUTADO
+    if(music.muted){
+
+      // DESMUTA
       music.muted = false;
 
-      // ALTERA TEXTO DO BOTÃO
+      // ALTERA TEXTO
       muteBtn.innerHTML = '🔊 Música';
 
-    } else {
+    }else{
 
-      // MUTA A MÚSICA
+      // MUTA
       music.muted = true;
 
-      // ALTERA TEXTO DO BOTÃO
+      // ALTERA TEXTO
       muteBtn.innerHTML = '🔇 Mutado';
     }
   });
 
-  // SISTEMA DE PESQUISA DE COMANDOS
+  // =========================================================
+  // SISTEMA DE PESQUISA DOS COMANDOS
+  // =========================================================
+
   const searchInput = document.getElementById('searchCommands');
 
-  // PEGA TODOS OS CARDS DE COMANDO
   const commandCards = document.querySelectorAll('.command-card');
 
-  // MONITORA DIGITAÇÃO DA PESQUISA
+  // MONITORA DIGITAÇÃO
   searchInput.addEventListener('keyup', () => {
 
-    // TEXTO DIGITADO
+    // TEXTO PESQUISADO
     const value = searchInput.value.toLowerCase();
 
     // PERCORRE TODOS OS CARDS
     commandCards.forEach(card => {
 
-      // TEXTO DO CARD
+      // TEXTO INTERNO
       const text = card.innerText.toLowerCase();
 
-      // VERIFICA SE ENCONTROU O TEXTO
-      if (text.includes(value)) {
+      // VERIFICA SE CONTÉM TEXTO
+      if(text.includes(value)){
 
         // MOSTRA CARD
         card.style.display = 'block';
 
-      } else {
+      }else{
 
         // ESCONDE CARD
         card.style.display = 'none';
       }
     });
   });
+
 </script>
 
 </body>
