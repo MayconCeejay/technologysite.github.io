@@ -318,6 +318,19 @@
       font-size:1.4rem;
     }
 
+    .badge-em breve{
+      background:rgba(255,193,7,0.2);
+      border:1px solid #ffc107;
+      color:#ffc107;
+      border-radius:20px;
+      padding:4px 12px;
+      font-size:0.75rem;
+      font-weight:bold;
+      display:inline-block;
+      margin-left:10px;
+      vertical-align:middle;
+    }
+
     /* ========================================================= */
     /* BOX DO SERVIDOR */
     /* ========================================================= */
@@ -339,6 +352,30 @@
     .highlight{
       color:#22c55e;
       font-weight:bold;
+    }
+
+    .login-box{
+      margin-top:30px;
+      background:rgba(34,197,94,0.1);
+      padding:20px;
+      border-radius:15px;
+      border-left:4px solid #22c55e;
+      text-align:left;
+    }
+
+    .login-box h4{
+      color:#22c55e;
+      margin-bottom:15px;
+      font-size:1.3rem;
+    }
+
+    .login-box code{
+      background:rgba(0,0,0,0.5);
+      padding:8px 12px;
+      border-radius:8px;
+      display:inline-block;
+      font-family:monospace;
+      margin:5px 0;
     }
 
     /* ========================================================= */
@@ -456,7 +493,6 @@
 
   <a href="#comandos">Comandos</a>
 
-  <!-- NOVA GUIA -->
   <a href="#mapaonline">Mapa On-Line</a>
 
   <a href="#entrar">Entrar</a>
@@ -509,6 +545,46 @@
       mas com melhorias modernas que deixam o mundo mais vivo, mais social e mais imersivo.
     </p>
 
+    <div class="cards">
+
+      <div class="card">
+        <h3>🛡️ Proteção de Terreno</h3>
+        <p>
+          Use <strong>/claim</strong> para proteger suas construções.<br>
+          Dê permissões com <strong>/trust</strong> para seus amigos.<br>
+          Sistema GriefPrevention - fácil e seguro!
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🧍 NPCs Interativos</h3>
+        <p>
+          Personagens vivos espalhados pelo mundo!<br>
+          Clique com botão direito para interagir,<br>
+          trocar itens ou receber informações.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>⚔️ Sistema de Skills</h3>
+        <p>
+          Evolua suas habilidades jogando!<br>
+          Mineração, combate, pesca e muito mais.<br>
+          Use <strong>/skills</strong> para acompanhar seu progresso.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>💬 Balões de Fala</h3>
+        <p>
+          Suas mensagens aparecem num balão<br>
+          acima da sua cabeça. Mais interativo<br>
+          e divertido para conversar com amigos!
+        </p>
+      </div>
+
+    </div>
+
   </div>
 
 </section>
@@ -555,6 +631,72 @@
 
       </div>
 
+      <div class="card">
+
+        <h3>⚔️ Skills</h3>
+
+        <p>
+          Sistema de habilidades e evolução.<br>
+          <strong>/skills, /stats, /mctop, /ability</strong>
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>🧍 NPCs Interativos</h3>
+
+        <p>
+          Personagens não jogáveis para missões,<br>
+          trocas e informações pelo mundo.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>💬 ChatBubbles</h3>
+
+        <p>
+          Balões de fala acima dos jogadores.<br>
+          Mais imersão e interatividade!
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>📜 Quests</h3>
+
+        <p>
+          Missões diárias e especiais.<br>
+          <span class="badge-em breve">🚧 EM BREVE</span>
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>🎮 Eventos Automáticos</h3>
+
+        <p>
+          Chuvas de XP, drops especiais e competições.<br>
+          <span class="badge-em breve">🚧 EM BREVE</span>
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>🔐 Login Seguro</h3>
+
+        <p>
+          Proteção de conta com AuthMe.<br>
+          <strong>/register</strong> e <strong>/login</strong>
+        </p>
+
+      </div>
+
     </div>
 
   </div>
@@ -577,6 +719,34 @@
       construir cidades e criar sua própria história dentro do servidor.
     </p>
 
+    <div class="cards">
+
+      <div class="card">
+        <h3>🏪 Player Shops</h3>
+        <p>
+          Crie lojas reais usando QuickShop-Hikari.<br>
+          Basta colocar um baú, clicar com o item e configurar o preço!
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🪙 Sistema Balanceado</h3>
+        <p>
+          Economia feita para durar sem inflação absurda.<br>
+          Use <strong>/balance</strong> para ver seu saldo.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🌱 Progressão Natural</h3>
+        <p>
+          Evolua jogando e explorando.<br>
+          Venda itens com <strong>/sell hand</strong>.
+        </p>
+      </div>
+
+    </div>
+
   </div>
 
 </section>
@@ -589,13 +759,62 @@
 
   <div class="overlay">
 
-    <h2>🧭 Multiverse</h2>
+    <h2>🧭 Multiverse - Mundos Disponíveis</h2>
 
     <p>
-      Explore múltiplos mundos conectados.
-      Cada dimensão do METAMINE possui suas próprias aventuras,
-      construções e possibilidades.
+      Explore múltiplos mundos conectados por portais.<br>
+      Cada dimensão do METAMINE possui suas próprias aventuras e possibilidades.
     </p>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>🌍 world</h3>
+        <p>
+          Mundo principal de aventura.<br>
+          Use <strong>/warp world</strong> para acessar.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🌲 survival</h3>
+        <p>
+          Mundo survival principal.<br>
+          Use <strong>/warp survival</strong> para acessar.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>⛏️ metamine</h3>
+        <p>
+          Mundo antigo do servidor.<br>
+          Use <strong>/warp metamine</strong> para acessar.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🏪 loja</h3>
+        <p>
+          Área dedicada para lojas entre players.<br>
+          Use <strong>/warp loja</strong> para acessar.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🔥 nether</h3>
+        <p>
+          O inferno - recursos valiosos e perigos.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>💀 end</h3>
+        <p>
+          O End - desafie o Dragão Ender!
+        </p>
+      </div>
+
+    </div>
 
   </div>
 
@@ -632,7 +851,7 @@
       "
     >
 
-    <!-- CARDS DE COMANDOS (COMPLETOS) -->
+    <!-- CARDS DE COMANDOS -->
     <div class="cards" id="commandsContainer">
 
       <!-- CARD WARPS -->
@@ -751,6 +970,17 @@
         </p>
       </div>
 
+      <!-- CARD LOGIN -->
+      <div class="card command-card">
+        <h3>🔐 Login e Segurança</h3>
+        <p>
+          /register senha senha - Criar conta (1º acesso).<br>
+          /login senha - Entrar no servidor.<br>
+          /logout - Sair da conta.<br>
+          /changepassword senha antiga senha nova - Trocar senha.
+        </p>
+      </div>
+
     </div>
 
   </div>
@@ -815,6 +1045,16 @@
       <p>
         <span class="highlight">Versão:</span> Paper 26.1.2
       </p>
+
+      <!-- SISTEMA DE LOGIN EXPLICADO -->
+      <div class="login-box">
+        <h4>🔐 Como entrar no servidor</h4>
+        <p><strong>🎉 PRIMEIRO ACESSO:</strong></p>
+        <p>Digite: <code>/register sua_senha sua_senha</code></p>
+        <p><strong>🔁 PRÓXIMOS ACESSOS:</strong></p>
+        <p>Digite: <code>/login sua_senha</code></p>
+        <p style="margin-top:15px; font-size:0.9rem; color:#ffc107;">⚠️ NUNCA compartilhe sua senha com ninguém!</p>
+      </div>
 
       <div class="btns">
 
