@@ -263,6 +263,63 @@
     }
 
     /* ========================================================= */
+    /* PAINEL DO SERVIDOR */
+    /* ========================================================= */
+
+    .server-panel{
+      margin-top:50px;
+      background:rgba(0,0,0,0.6);
+      backdrop-filter:blur(10px);
+      border-radius:20px;
+      padding:20px 30px;
+      display:inline-flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:30px;
+      border:1px solid rgba(34,197,94,0.3);
+      width:100%;
+      max-width:600px;
+    }
+
+    .server-panel-item{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:1.1rem;
+      font-weight:500;
+    }
+
+    .status-online{
+      width:12px;
+      height:12px;
+      background:#22c55e;
+      border-radius:50%;
+      box-shadow:0 0 8px #22c55e;
+      animation:pulse-green 2s infinite;
+    }
+
+    @keyframes pulse-green{
+      0%{
+        opacity:0.5;
+        transform:scale(0.9);
+      }
+      100%{
+        opacity:1;
+        transform:scale(1.2);
+      }
+    }
+
+    .server-panel-item .emoji{
+      font-size:1.3rem;
+    }
+
+    .server-panel-item .value{
+      color:#22c55e;
+      font-weight:bold;
+      font-family:'Orbitron', monospace;
+    }
+
+    /* ========================================================= */
     /* SESSÕES */
     /* ========================================================= */
 
@@ -460,6 +517,15 @@
         font-size:0.8rem;
         padding:8px 12px;
       }
+
+      .server-panel{
+        gap:15px;
+        padding:15px 20px;
+      }
+
+      .server-panel-item{
+        font-size:0.9rem;
+      }
     }
 
   </style>
@@ -542,6 +608,26 @@
         Canal do Youtube
       </a>
 
+    </div>
+
+    <!-- PAINEL DO SERVIDOR -->
+    <div class="server-panel">
+      <div class="server-panel-item">
+        <span class="status-online"></span>
+        <span>🟢 ONLINE</span>
+      </div>
+      <div class="server-panel-item">
+        <span class="emoji">👥</span>
+        <span><span id="players-count" class="value">0</span> / 1000 players</span>
+      </div>
+      <div class="server-panel-item">
+        <span class="emoji">⚡</span>
+        <span>Paper <span id="version" class="value">26.1.2</span></span>
+      </div>
+      <div class="server-panel-item">
+        <span class="emoji">📡</span>
+        <span>Ping: <span id="ping-count" class="value">0</span>ms</span>
+      </div>
     </div>
 
   </div>
@@ -1155,8 +1241,7 @@
       // TEXTO INTERNO
       const text = card.innerText.toLowerCase();
 
-      // VERIFICA PESQUISA
-      if(text.includes(value)){
+      // VERIFICA PESQUISA      if(text.includes(value)){
 
         // MOSTRA
         card.style.display = 'block';
@@ -1170,6 +1255,61 @@
     });
 
   });
+
+  // =========================================================
+  // PAINEL SIMULADO DO SERVIDOR
+  // =========================================================
+
+  const playersCountElement = document.getElementById('players-count');
+  const pingCountElement = document.getElementById('ping-count');
+
+  let currentPlayers = 47;
+  let currentPing = 32;
+
+  // VARIAÇÃO DOS PLAYERS (MAIS LENTA, ENTRE 23 E 87)
+  function updatePlayers() {
+    // MUDA O NÚMERO DE PLAYERS DE FORMA SUAVE (-3 A +3)
+    let change = Math.floor(Math.random() * 7) - 3;
+    let newPlayers = currentPlayers + change;
+    
+    if (newPlayers >= 23 && newPlayers <= 87) {
+      currentPlayers = newPlayers;
+    } else if (newPlayers < 23) {
+      currentPlayers = 23 + Math.floor(Math.random() * 10);
+    } else if (newPlayers > 87) {
+      currentPlayers = 87 - Math.floor(Math.random() * 10);
+    }
+    
+    playersCountElement.textContent = currentPlayers;
+  }
+
+  // VARIAÇÃO DO PING (MAIS RÁPIDO, ENTRE 18 E 120)
+  function updatePing() {
+    let change = Math.floor(Math.random() * 15) - 7;
+    let newPing = currentPing + change;
+    
+    if (newPing >= 18 && newPing <= 120) {
+      currentPing = newPing;
+    } else if (newPing < 18) {
+      currentPing = 18 + Math.floor(Math.random() * 15);
+    } else if (newPing > 120) {
+      currentPing = 120 - Math.floor(Math.random() * 20);
+    }
+    
+    pingCountElement.textContent = currentPing;
+  }
+
+  // ATUALIZA PLAYERS A CADA 8 SEGUNDOS (VARIAÇÃO REALISTA)
+  setInterval(updatePlayers, 8000);
+  
+  // ATUALIZA PING A CADA 2.5 SEGUNDOS (VARIAÇÃO MAIS RÁPIDA)
+  setInterval(updatePing, 2500);
+
+  // INICIALIZA COM VALORES ALEATÓRIOS REALISTAS
+  currentPlayers = Math.floor(Math.random() * (87 - 23 + 1) + 23);
+  currentPing = Math.floor(Math.random() * (120 - 18 + 1) + 18);
+  playersCountElement.textContent = currentPlayers;
+  pingCountElement.textContent = currentPing;
 
 </script>
 
